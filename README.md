@@ -34,7 +34,7 @@ Next we will create the container:
 xhost +local:root
 ```
 
-We can now run the image as a container named <strong>goal_checker_container</strong> using docker-compose :
+We can now run the image as a container named <strong>koubot_ros2_container</strong> using docker-compose :
 
 ```bash
 docker-compose up

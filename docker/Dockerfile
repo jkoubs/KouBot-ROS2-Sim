@@ -1,4 +1,4 @@
-FROM galactic_tb_env:latest
+FROM galactic_env:latest
 # ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
 
