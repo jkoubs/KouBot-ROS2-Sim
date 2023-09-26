@@ -1,0 +1,31 @@
+version: '3' # version of docker-compose
+
+services:
+  tasks: # name of the container
+    image: mecanum:latest
+    container_name: mecanum_container
+    network_mode: host
+    privileged: true
+    volumes:
+      # ---------------------------------------------------------------------
+      # Remember that to allow docker to public GUI tools on your computer
+      # you have to run "xhost +local:root". To disallow, "xhost -local:root"
+      #
+      # The volume below allows the container to have access to the
+      # "physical display". If the DISPLAY variable is :0, then the graphical
+      # things will be written at /tmp/.X11-unix/X0
+      # ---------------------------------------------------------------------
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      # - $GOAL_CHECKER_PATH/ros2_ws/src:/ros2_ws/src:rw
+      - $HOME/Projects/mecanum_ros2/ros2_ws/src:/ros2_ws/src:rw
+    environment: # set ENV vars
+      - DISPLAY # Forward the DISPLAY variable of the host to the container
+      - QT_X11_NO_MITSHM=1 # Taken from https://answers.ros.org/question/391195/using-rviz-in-docker/?answer=391504#post-id-391504
+      - TURTLEBOT3_MODEL=waffle
+      - RCUTILS_COLORIZED_OUTPUT=1 # Console output colorizing
+
+    command:
+      - bash
+      - -c
+      - |  
+        terminator -u --title="Task Container"
