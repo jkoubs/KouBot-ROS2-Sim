@@ -1,18 +1,18 @@
 import os
 
+import launch_ros.descriptions
+
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.substitutions import Command
 from launch_ros.actions import Node
 
-# this is the function launch  system will look for
-
+# Launch file launching: Robot State Pub, Joint State Pub, Joint State Pub GUI, Rviz
 
 def generate_launch_description():
 
     ####### DATA INPUT ##########
     urdf_file = 'koubot_base.xacro'
-    # xacro_file = "box_bot.xacro"
     package_description = "robot_description"
 
     ####### DATA INPUT END ##########
@@ -20,20 +20,20 @@ def generate_launch_description():
     robot_desc_path = os.path.join(get_package_share_directory(
         package_description), "urdf", "base", urdf_file)
 
-    # Robot State Publisher
-
+    # 1) Robot State Publisher
+    # Publish the contents of the URDF in the 'robot_description' topic using the robot_state_publish_node
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher_node',
         emulate_tty=True,
-        parameters=[{'use_sim_time': True, 'robot_description': Command(
-            ['xacro ', robot_desc_path])}],
+        # parameters=[{'use_sim_time': True, 'robot_description': Command(
+        #     ['xacro ', robot_desc_path])}],
+        parameters=[{'robot_description': launch_ros.descriptions.ParameterValue(Command(['xacro ',os.path.join(package_description,'urdf/base/koubot_base.xacro')]), value_type=str)  }],
         output="screen"
     )
-#######################################################
-    # Joint State Publisher
 
+    # 2) Joint State Publisher
     joint_state_publisher_node = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
@@ -41,16 +41,15 @@ def generate_launch_description():
         output="screen"
     )
 
-    # Joint State Publisher Gui
-
+    # 3) Joint State Publisher Gui
     joint_state_publisher_gui_node = Node(
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
         name='joint_state_publisher_gui_node',
         output="screen"
     )
-#######################################################
-    # RVIZ Configuration
+
+    # 4) RVIZ Configuration
     rviz_config_dir = os.path.join(get_package_share_directory(
         package_description), 'rviz', 'urdf.rviz')
 
