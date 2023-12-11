@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<robot name="koubot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="robot_name" value="koubot"/>
+    <xacro:property name="chassis_mass" value="5.0"/>
+    <xacro:property name="chassis_width" value="0.155"/>
+    <xacro:property name="chassis_depth" value="0.2"/>
+    <xacro:property name="chassis_height" value="0.11"/>
+    <xacro:property name="wheel_mass" value="0.5"/>
+    <xacro:property name="wheel_radius" value="0.04"/>
+    <xacro:property name="wheel_length" value="0.036"/>
+    <xacro:property name="pi_value" value="3.141592654"/>
+    <xacro:property name="half_pi" value="1.570796327"/>
+
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+
+    <!--This will make the SDF conversion to keep links binded with FIXED JOINTS separate.-->
+    <!-- <gazebo reference="base_link_front_caster_wheel">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+    <gazebo reference="base_link_back_caster_wheel">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo> -->
+    <!-- <gazebo reference="front_laser_joint">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo> -->
+
+    <!--Friction added here-->
+    <gazebo reference="front_left_wheel">
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+    <gazebo reference="front_right_wheel">
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+    <gazebo reference="back_left_wheel">
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+    <gazebo reference="back_right_wheel">
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+    <!-- BASE FOOTPRINT -->
+    <link name="base_footprint">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.0001 0.0001 0.0001" />
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="base_footprint_joint" type="fixed">
+        <origin xyz="0 0 0.081" rpy="0 0 0" />
+        <parent link="base_footprint"/>
+        <child link="base_link" />
+    </joint>
+
+<!-- BASE LINK -->
+    <link name="base_link">
+        <inertial>
+            <mass value="${chassis_mass}" />
+            <origin xyz="0 0 0.0" />
+            <inertia  ixx="0.015052083333333336" ixy="0.0"  ixz="0.0" iyy="0.021708333333333336"  iyz="0.0"  izz="0.02667708333333334" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${chassis_width} ${chassis_depth} ${chassis_height}" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 0 -${chassis_height/2}" rpy="-${half_pi} 0 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/chassis.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Joint - base_link / front left wheel -->
+    <joint name="joint_base_link_front_left_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="0.05 0.114 -0.04" />
+        <child link="front_left_wheel" />
+        <parent link="base_link" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- FRONT LEFT WHEEL -->
+    <link name="front_left_wheel">
+        <inertial>
+            <mass value="${wheel_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Joint - base_link / front right wheel -->
+    <joint name="joint_base_link_front_right_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="0.05 -0.114 -0.04" />
+        <child link="front_right_wheel" />
+        <parent link="base_link" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- FRONT RIGHT WHEEL -->
+    <link name="front_right_wheel">
+        <inertial>
+            <mass value="${wheel_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Joint - base_link / back right wheel -->
+    <joint name="joint_base_link_back_right_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="-0.05 -0.114 -0.04" />
+        <child link="back_right_wheel" />
+        <parent link="base_link" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- BACK RIGHT WHEEL -->
+    <link name="back_right_wheel">
+        <inertial>
+            <mass value="${wheel_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- Joint - base_link / back left wheel -->
+    <joint name="joint_base_link_back_left_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="-0.05 0.114 -0.04" />
+        <child link="back_left_wheel" />
+        <parent link="base_link" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- BACK LEFT WHEEL -->
+    <link name="back_left_wheel">
+        <inertial>
+            <mass value="${wheel_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi_value} 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <!-- FRONT LASER -->
+    <!-- <link name="front_laser">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="front_laser_joint" type="fixed">
+        <origin xyz="0.65 0 0.075" rpy="3.14159265359 0 0" />
+        <parent link="base_link"/>
+        <child link="front_laser" />
+    </joint> -->
+
+
+    <!-- <xacro:include filename="$(find robot_description)/urdf/base/koubot_base.gazebo" /> -->
+
+
+    <gazebo>
+        <plugin name="omni_steering" filename="libgazebo_ros_planar_move.so">
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <odometryRate>20.0</odometryRate>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <publishTF>true</publishTF>  <!-- change to true ?? -->
+        </plugin>
+    </gazebo>
+
+</robot>

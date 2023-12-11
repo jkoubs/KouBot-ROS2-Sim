@@ -10,6 +10,11 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+# find_package(joint_state_publisher REQUIRED)
+# find_package(joint_state_publisher_gui REQUIRED)
+# find_package(robot_state_publisher REQUIRED)
+find_package(rviz2 REQUIRED)
+find_package(xacro REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -21,5 +26,14 @@ if(BUILD_TESTING)
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
+install(
+  DIRECTORY
+    urdf
+    rviz
+    launch
+	  config
+    meshes
+  DESTINATION
+    share/${PROJECT_NAME}/
+)
 ament_package()
