@@ -17,11 +17,19 @@
 
     <xacro:property name="M_PI" value="3.141592654"/>
 
-    <!--Inertia Calculator for a Box-->
-    <xacro:macro name="box_inertia" params="mass x y z">
-        <inertia  ixx="${mass*(y*y+z*z)/12.0}" ixy = "0" ixz = "0"
-              iyy="${mass*(x*x+z*z)/12.0}" iyz = "0"
-              izz="${mass*(x*x+y*y)/12.0}"
+    <!--Inertia Calculator for Chassis-->
+    <xacro:macro name="chassis_inertia" params="mass_chassis x y z">
+        <inertia  ixx="${mass_chassis*(y*y+z*z)/12.0}" ixy = "0" ixz = "0"
+              iyy="${mass_chassis*(x*x+z*z)/12.0}" iyz = "0"
+              izz="${mass_chassis*(x*x+y*y)/12.0}"
+        />
+    </xacro:macro>
+
+    <!--Inertia Calculator for Wheels-->
+    <xacro:macro name="wheels_inertia" params="mass_wheel r h">
+        <inertia  ixx="${mass_wheel*(3*r*r + h*h)/12.0}" ixy = "0" ixz = "0"
+              iyy="${mass_wheel*(3*r*r + h*h)/12.0}" iyz = "0"
+              izz="${mass_wheel*(r*r)/2.0}"
         />
     </xacro:macro>
 
@@ -29,38 +37,22 @@
 
     <!--
 
-    mu1: The static friction coefficient. It is how much friction there is until the object starts moving in simple terms.
-    mu2: The dynamic friction coefficient. It is how much friction there is when the object moves in simple terms. 
+    mu1: The static friction coefficient. 
+    It is how much friction there is until the object starts moving in simple terms.
+
+    mu2: The dynamic friction coefficient. 
+    It is how much friction there is when the object moves in simple terms. 
     
-    kp: This coefficient sets the static contact stiffness. This determines whether the linked material is closer to marble (rigid, bigger values) or more like rubber (soft material, lower values).
-    kd: This coefficient sets the dynamic contact stiffness. This determines whether the linked material is closer to marble (rigid, bigger values) or more like rubber (soft material, lower values). It is essentially how much it deforms over a long period, exerting its pressure.
+    kp: This coefficient sets the static contact stiffness. 
+    This determines whether the linked material is closer to marble (rigid, bigger values) 
+    or more like rubber (soft material, lower values).
+
+    kd: This coefficient sets the dynamic contact stiffness. 
+    This determines whether the linked material is closer to marble (rigid, bigger values) 
+    or more like rubber (soft material, lower values). 
+    It is essentially how much it deforms over a long period, exerting its pressure.
 
     -->
-
-    <gazebo reference="front_left_wheel">
-        <!-- <kp>1000000000000000000000000000.0</kp>
-        <kd>1000000000000000000000000000.0</kd> -->
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-    </gazebo>
-    <gazebo reference="front_right_wheel">
-        <!-- <kp>1000000000000000000000000000.0</kp>
-        <kd>1000000000000000000000000000.0</kd> -->
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-    </gazebo>
-    <gazebo reference="back_left_wheel">
-        <!-- <kp>1000000000000000000000000000.0</kp>
-        <kd>1000000000000000000000000000.0</kd> -->
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-    </gazebo>
-    <gazebo reference="back_right_wheel">
-        <!-- <kp>1000000000000000000000000000.0</kp>
-        <kd>1000000000000000000000000000.0</kd> -->
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-    </gazebo>
 
     <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
     <!-- BASE FOOTPRINT -->
@@ -84,8 +76,7 @@
         <inertial>
             <mass value="${chassis_mass}" />
             <origin xyz="0 0 0.0" />
-            <xacro:box_inertia mass="${chassis_mass}" x="${chassis_depth}" y="${chassis_width}" z="${chassis_height}"/>
-            <!-- <inertia  ixx="0.015052083333333336" ixy="0.0"  ixz="0.0" iyy="0.021708333333333336"  iyz="0.0"  izz="0.02667708333333334" /> -->
+            <xacro:chassis_inertia mass_chassis="${chassis_mass}" x="${chassis_depth}" y="${chassis_width}" z="${chassis_height}"/>
         </inertial>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
@@ -116,7 +107,7 @@
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
-            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+            <xacro:wheels_inertia mass_wheel="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}"/>
         </inertial>
 
         <collision>
@@ -148,7 +139,7 @@
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
-            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+            <xacro:wheels_inertia mass_wheel="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}"/>
         </inertial>
 
         <collision>
@@ -180,7 +171,7 @@
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
-            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+            <xacro:wheels_inertia mass_wheel="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}"/>
         </inertial>
 
         <collision>
@@ -212,7 +203,7 @@
         <inertial>
             <mass value="${wheel_mass}" />
             <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
-            <inertia ixx="0.000254" ixy="0" ixz="0" iyy="0.000254" iyz="0" izz="0.0004"/>
+            <xacro:wheels_inertia mass_wheel="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}"/>
         </inertial>
 
         <collision>
@@ -246,19 +237,6 @@
         <child link="front_laser" />
     </joint> -->
 
-
-    <!-- <xacro:include filename="$(find robot_description)/urdf/base/koubot_base.gazebo" /> -->
-
-
-    <gazebo>
-        <plugin name="omni_steering" filename="libgazebo_ros_planar_move.so">
-            <commandTopic>cmd_vel</commandTopic>
-            <odometryTopic>odom</odometryTopic>
-            <odometryFrame>odom</odometryFrame>
-            <odometryRate>20.0</odometryRate>
-            <robotBaseFrame>base_link</robotBaseFrame>
-            <publishTF>true</publishTF>  <!-- change to true ?? -->
-        </plugin>
-    </gazebo>
+    <xacro:include filename="$(find robot_description)/urdf/base/koubot_base.gazebo" />
 
 </robot>

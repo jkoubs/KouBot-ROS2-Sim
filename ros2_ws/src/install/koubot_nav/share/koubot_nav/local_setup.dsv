@@ -1,0 +1,2 @@
+source;share/koubot_nav/environment/ament_prefix_path.sh
+source;share/koubot_nav/environment/path.sh

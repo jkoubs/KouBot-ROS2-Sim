@@ -1,0 +1,26 @@
+-- Install configuration: ""
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//launch
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//launch/navigation.launch.py
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//configs
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//configs/navigation.yaml
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//configs/mapping.yaml
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//maps
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//maps/neo_track1.yaml
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//maps/neo_track1.pgm
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//models
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav//worlds
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/ament_index/resource_index/package_run_dependencies/koubot_nav
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/ament_index/resource_index/parent_prefix_path/koubot_nav
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/environment/ament_prefix_path.sh
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/environment/ament_prefix_path.dsv
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/environment/path.sh
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/environment/path.dsv
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/local_setup.bash
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/local_setup.sh
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/local_setup.zsh
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/local_setup.dsv
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/package.dsv
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/ament_index/resource_index/packages/koubot_nav
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/cmake/koubot_navConfig.cmake
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/cmake/koubot_navConfig-version.cmake
+-- Up-to-date: /ros2_ws/src/install/koubot_nav/share/koubot_nav/package.xml

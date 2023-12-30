@@ -1,0 +1,38 @@
+[0.049s] Invoking command in '/ros2_ws/src/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --build /ros2_ws/src/build/robot_description -- -j12 -l12
+[0.116s] Invoked command in '/ros2_ws/src/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --build /ros2_ws/src/build/robot_description -- -j12 -l12
+[0.157s] Invoking command in '/ros2_ws/src/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --install /ros2_ws/src/build/robot_description
+[0.173s] -- Install configuration: ""
+[0.173s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//urdf
+[0.173s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//urdf/base
+[0.173s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//urdf/base/mpo_500.urdf
+[0.174s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//urdf/base/koubot_base.xacro
+[0.174s] -- Installing: /ros2_ws/src/install/robot_description/share/robot_description//urdf/base/koubot_base.gazebo
+[0.174s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//urdf/manipulator
+[0.174s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//rviz
+[0.174s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//rviz/urdf.rviz
+[0.175s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//launch
+[0.175s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//launch/spawn.launch.py
+[0.175s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//config
+[0.175s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//config/rb1_controller.yaml
+[0.176s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//config/koubot_controller.yaml
+[0.176s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//config/navigation.yaml
+[0.176s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//meshes
+[0.177s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//meshes/chassis.stl
+[0.178s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//meshes/chassis.dae
+[0.179s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description//meshes/wheels.dae
+[0.179s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/ament_index/resource_index/package_run_dependencies/robot_description
+[0.179s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/ament_index/resource_index/parent_prefix_path/robot_description
+[0.179s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/environment/ament_prefix_path.sh
+[0.180s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/environment/ament_prefix_path.dsv
+[0.180s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/environment/path.sh
+[0.180s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/environment/path.dsv
+[0.180s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/local_setup.bash
+[0.180s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/local_setup.sh
+[0.181s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/local_setup.zsh
+[0.182s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/local_setup.dsv
+[0.183s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/package.dsv
+[0.185s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/ament_index/resource_index/packages/robot_description
+[0.185s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/cmake/robot_descriptionConfig.cmake
+[0.185s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/cmake/robot_descriptionConfig-version.cmake
+[0.185s] -- Up-to-date: /ros2_ws/src/install/robot_description/share/robot_description/package.xml
+[0.213s] Invoked command in '/ros2_ws/src/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --install /ros2_ws/src/build/robot_description

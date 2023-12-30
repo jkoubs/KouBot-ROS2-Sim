@@ -1,0 +1,144 @@
+[0.056s] Invoking command in '/ros2_ws/src/build/koubot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake /ros2_ws/src/koubot_gazebo -DCMAKE_INSTALL_PREFIX=/ros2_ws/src/install/koubot_gazebo
+[0.209s] -- The C compiler identification is GNU 9.4.0
+[0.367s] -- The CXX compiler identification is GNU 9.4.0
+[0.374s] -- Check for working C compiler: /usr/bin/cc
+[0.501s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.504s] -- Detecting C compiler ABI info
+[0.653s] -- Detecting C compiler ABI info - done
+[0.675s] -- Detecting C compile features
+[0.676s] -- Detecting C compile features - done
+[0.683s] -- Check for working CXX compiler: /usr/bin/c++
+[0.823s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.825s] -- Detecting CXX compiler ABI info
+[0.964s] -- Detecting CXX compiler ABI info - done
+[0.984s] -- Detecting CXX compile features
+[0.985s] -- Detecting CXX compile features - done
+[0.991s] -- Found ament_cmake: 1.1.6 (/opt/ros/galactic/share/ament_cmake/cmake)
+[1.048s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.048s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.274s] -- Found rclpy: 1.9.3 (/opt/ros/galactic/share/rclpy/cmake)
+[1.278s] -- Found gazebo_ros: 3.5.2 (/opt/ros/galactic/share/gazebo_ros/cmake)
+[1.422s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.440s] -- Found rosidl_adapter: 2.2.3 (/opt/ros/galactic/share/rosidl_adapter/cmake)
+[1.641s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.718s] -- Found FastRTPS: /opt/ros/galactic/include  
+[1.888s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.011s] -- Found rmw_implementation_cmake: 3.3.1 (/opt/ros/galactic/share/rmw_implementation_cmake/cmake)
+[2.025s] -- Found rmw_cyclonedds_cpp: 0.22.6 (/opt/ros/galactic/share/rmw_cyclonedds_cpp/cmake)
+[2.064s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[2.065s] -- Looking for pthread.h
+[2.183s] -- Looking for pthread.h - found
+[2.184s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.290s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[2.290s] -- Looking for pthread_create in pthreads
+[2.373s] -- Looking for pthread_create in pthreads - not found
+[2.373s] -- Looking for pthread_create in pthread
+[2.471s] -- Looking for pthread_create in pthread - found
+[2.473s] -- Found Threads: TRUE  
+[2.747s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[2.749s] -- Checking for module 'bullet>=2.82'
+[2.772s] --   Found bullet, version 2.88
+[3.005s] -- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+[3.098s] -- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+[3.205s] -- Found assimp: /usr/include (found version "5.0.0") 
+[3.271s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[3.324s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[3.359s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[3.372s] -- Looking for ignition-math6 -- found version 6.13.0
+[3.388s] -- Searching for dependencies of ignition-math6
+[3.390s] -- Looking for OGRE...
+[3.391s] -- OGRE_PREFIX_WATCH changed.
+[3.396s] -- Checking for module 'OGRE'
+[3.422s] --   Found OGRE, version 1.9.0
+[3.492s] -- Found Ogre Ghadamon (1.9.0)
+[3.507s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[3.526s] -- Looking for OGRE_Paging...
+[3.538s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[3.538s] -- Looking for OGRE_Terrain...
+[3.552s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[3.552s] -- Looking for OGRE_Property...
+[3.565s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[3.565s] -- Looking for OGRE_RTShaderSystem...
+[3.578s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[3.578s] -- Looking for OGRE_Volume...
+[3.589s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[3.589s] -- Looking for OGRE_Overlay...
+[3.601s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[3.882s] -- Looking for ignition-math6 -- found version 6.13.0
+[3.893s] -- Looking for ignition-transport8 -- found version 8.3.0
+[3.893s] -- Searching for dependencies of ignition-transport8
+[3.926s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[3.964s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[3.968s] -- Checking for module 'libzmq >= 4'
+[3.995s] --   Found libzmq , version 4.3.2
+[4.062s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[4.075s] -- Checking for module 'uuid'
+[4.103s] --   Found uuid, version 2.34.0
+[4.174s] -- Found UUID: TRUE  
+[4.185s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[4.187s] -- Searching for dependencies of ignition-msgs5
+[4.230s] -- Looking for ignition-math6 -- found version 6.13.0
+[4.236s] -- Checking for module 'tinyxml2'
+[4.266s] --   Found tinyxml2, version 6.2.0
+[4.348s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[4.354s] -- Looking for ignition-common3 -- found version 3.14.2
+[4.355s] -- Searching for dependencies of ignition-common3
+[4.356s] -- Looking for dlfcn.h - found
+[4.357s] -- Looking for libdl - found
+[4.359s] -- Found DL: TRUE  
+[4.379s] -- Searching for <ignition-common3> component [graphics]
+[4.389s] -- Looking for ignition-common3-graphics -- found version 3.14.2
+[4.391s] -- Searching for dependencies of ignition-common3-graphics
+[4.392s] -- Looking for ignition-math6 -- found version 6.13.0
+[4.403s] -- Looking for ignition-fuel_tools4 -- found version 4.6.0
+[4.404s] -- Searching for dependencies of ignition-fuel_tools4
+[4.539s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+[4.552s] -- Checking for module 'jsoncpp'
+[4.580s] --   Found jsoncpp, version 1.7.4
+[4.655s] -- Found JSONCPP: TRUE  
+[4.668s] -- Checking for module 'libzip'
+[4.700s] --   Found libzip, version 1.5.1
+[4.774s] -- Found ZIP: TRUE  
+[4.775s] -- Looking for ignition-common3 -- found version 3.14.2
+[4.775s] -- Looking for ignition-math6 -- found version 6.13.0
+[4.776s] -- Looking for ignition-msgs5 -- found version 5.10.0
+[4.782s] -- Gazebo version: 11.11
+[4.794s] -- Found robot_description: 0.0.0 (/ros2_ws/install/robot_description/share/robot_description/cmake)
+[4.799s] -- Found ament_lint_auto: 0.10.7 (/opt/ros/galactic/share/ament_lint_auto/cmake)
+[4.949s] -- Added test 'copyright' to check source files copyright and LICENSE
+[4.951s] -- Added test 'flake8' to check Python code syntax and style conventions
+[4.952s] -- Added test 'lint_cmake' to check CMake code style
+[4.954s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[4.957s] -- Added test 'xmllint' to check XML markup files
+[4.962s] -- Configuring done
+[4.965s] -- Generating done
+[4.971s] -- Build files have been written to: /ros2_ws/src/build/koubot_gazebo
+[5.005s] Invoked command in '/ros2_ws/src/build/koubot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake /ros2_ws/src/koubot_gazebo -DCMAKE_INSTALL_PREFIX=/ros2_ws/src/install/koubot_gazebo
+[5.012s] Invoking command in '/ros2_ws/src/build/koubot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --build /ros2_ws/src/build/koubot_gazebo -- -j12 -l12
+[5.076s] Invoked command in '/ros2_ws/src/build/koubot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --build /ros2_ws/src/build/koubot_gazebo -- -j12 -l12
+[5.145s] Invoking command in '/ros2_ws/src/build/koubot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --install /ros2_ws/src/build/koubot_gazebo
+[5.170s] -- Install configuration: ""
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//launch
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//launch/spawn_robot_ros2.launch.xml
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//launch/urdf_visualize_meshes_collisions_inertias.launch.py
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//launch/start_world.launch.py
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//launch/spawn_robot_description.launch.py
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//worlds
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//worlds/koubot_empty.world
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo//models
+[5.171s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/ament_index/resource_index/package_run_dependencies/koubot_gazebo
+[5.172s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/ament_index/resource_index/parent_prefix_path/koubot_gazebo
+[5.172s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/environment/ament_prefix_path.sh
+[5.172s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/environment/ament_prefix_path.dsv
+[5.172s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/environment/path.sh
+[5.173s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/environment/path.dsv
+[5.173s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/local_setup.bash
+[5.173s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/local_setup.sh
+[5.174s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/local_setup.zsh
+[5.175s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/local_setup.dsv
+[5.175s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/package.dsv
+[5.175s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/ament_index/resource_index/packages/koubot_gazebo
+[5.175s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/cmake/koubot_gazeboConfig.cmake
+[5.176s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/cmake/koubot_gazeboConfig-version.cmake
+[5.176s] -- Installing: /ros2_ws/src/install/koubot_gazebo/share/koubot_gazebo/package.xml
+[5.185s] Invoked command in '/ros2_ws/src/build/koubot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/env_ws/install/turtlebot3_teleop:/env_ws/install/turtlebot3_example:/opt/ros/galactic /usr/bin/cmake --install /ros2_ws/src/build/koubot_gazebo
