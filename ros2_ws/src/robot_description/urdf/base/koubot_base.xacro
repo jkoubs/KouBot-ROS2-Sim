@@ -17,6 +17,14 @@
 
     <xacro:property name="M_PI" value="3.141592654"/>
 
+    <!--Inertia Calculator for a Box-->
+    <xacro:macro name="box_inertia" params="mass x y z">
+        <inertia  ixx="${mass*(y*y+z*z)/12.0}" ixy = "0" ixz = "0"
+              iyy="${mass*(x*x+z*z)/12.0}" iyz = "0"
+              izz="${mass*(x*x+y*y)/12.0}"
+        />
+    </xacro:macro>
+
     <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FRICTION & STIFNESS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 
     <!--
@@ -76,7 +84,8 @@
         <inertial>
             <mass value="${chassis_mass}" />
             <origin xyz="0 0 0.0" />
-            <inertia  ixx="0.015052083333333336" ixy="0.0"  ixz="0.0" iyy="0.021708333333333336"  iyz="0.0"  izz="0.02667708333333334" />
+            <xacro:box_inertia mass="${chassis_mass}" x="${chassis_depth}" y="${chassis_width}" z="${chassis_height}"/>
+            <!-- <inertia  ixx="0.015052083333333336" ixy="0.0"  ixz="0.0" iyy="0.021708333333333336"  iyz="0.0"  izz="0.02667708333333334" /> -->
         </inertial>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
