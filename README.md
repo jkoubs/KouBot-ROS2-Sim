@@ -1,6 +1,25 @@
 # This repository holds all the development work related to the KouBot Project done by me.
 
 # Table of Contents
+ - [About](#about)
+ - [Packages](#packages)
+ - [Install](#installation-instructions)
+ - [System at a glance](#system-at-a-glance)
+ - [Simulation](#simulation)
+   - [Autonomous Navigation](#autonomous-navigation)
+   - [Manipulation Pipeline](#manipulation-pipeline)
+   - [Perception Pipeline](#perception-pipeline)
+   - [Fetch-and-Carry Mission](#fetch-and-carry-mission)
+ - [Real Robot](#real-robot)
+ - [Docker](#docker)
+
+# About 
+
+In progress ...
+
+# Packages
+
+In progress ...
 
 # Install
 
@@ -43,3 +62,37 @@ docker-compose up
 We are now <strong>inside the container</strong> and ready for executing our codes.
 
 <u><strong><em>Note:</em></strong></u> For the next tasks we will consider that we are working from inside our container, in the <strong>ros2_ws</strong> workspace.
+
+# System at a glance
+
+In progress ...
+
+# Simulation
+
+## Autonomous Navigation
+
+### 1) Teleop
+
+Launch Gazebo (shell #1):
+```
+ros2 launch koubot_gazebo start_world.launch.py
+```
+
+Spawn the robot (shell # 2):
+```
+ros2 launch koubot_gazebo spawn_robot_ros2.launch.xml
+```
+
+
+
+### 2) Mapping
+### 3) Localization
+### 4) Autonomous Navigation
+
+# Real Robot
+
+In progress ..
+
+# Docker
+
+In progress ..
