@@ -119,7 +119,7 @@
         <visual>
             <origin rpy="${M_PI} 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+                <mesh filename="package://robot_description/meshes/wheels.dae"/>
             </geometry>
         </visual>
     </link>
@@ -151,7 +151,7 @@
         <visual>
             <origin rpy="${M_PI} 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+                <mesh filename="package://robot_description/meshes/wheels.dae"/>
             </geometry>
         </visual>
     </link>
@@ -183,7 +183,7 @@
         <visual>
             <origin rpy="${M_PI} 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+                <mesh filename="package://robot_description/meshes/wheels.dae"/>
             </geometry>
         </visual>
     </link>
@@ -215,7 +215,7 @@
         <visual>
             <origin rpy="${M_PI} 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://robot_description/meshes/wheels_scaled.dae"/>
+                <mesh filename="package://robot_description/meshes/wheels.dae"/>
             </geometry>
         </visual>
     </link>
