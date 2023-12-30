@@ -83,6 +83,11 @@ Spawn the robot (shell # 2):
 ros2 launch koubot_gazebo spawn_robot_ros2.launch.xml
 ```
 
+Launch teleop node
+
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
 
 
 ### 2) Mapping
