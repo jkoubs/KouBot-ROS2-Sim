@@ -73,17 +73,12 @@ In progress ...
 
 ### 1) Teleop
 
-Launch Gazebo (shell #1):
+Spawn the robot in Gazebo (shell # 1):
 ```
-ros2 launch koubot_gazebo start_world.launch.py
-```
-
-Spawn the robot (shell # 2):
-```
-ros2 launch koubot_gazebo spawn_robot_ros2.launch.xml
+ros2 launch koubot_gazebo spawn_robot.launch.xml
 ```
 
-Launch teleop node
+Launch teleop node (shell # 2):
 
 ```
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
