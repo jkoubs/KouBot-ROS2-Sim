@@ -29,7 +29,7 @@ def generate_launch_description():
         emulate_tty=True,
         # parameters=[{'use_sim_time': True, 'robot_description': Command(
         #     ['xacro ', robot_desc_path])}],
-        parameters=[{'robot_description': launch_ros.descriptions.ParameterValue(Command(['xacro ',os.path.join(package_description,'urdf/base/koubot_base.xacro')]), value_type=str)  }],
+        parameters=[{'robot_description': launch_ros.descriptions.ParameterValue(Command(['xacro ',os.path.join('src',package_description,'urdf/base/koubot_base.xacro')]), value_type=str)  }],
         output="screen"
     )
 
