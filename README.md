@@ -32,7 +32,7 @@ We will build 2 images:
 Open a new terminal and git clone the following repositories:
 ```bash
 git clone https://github.com/jkoubs/ros2_galactic.git
-git clone https://github.com/jkoubs/koubot_ros2.git
+git clone https://github.com/jkoubs/KouBot-ROS2.git
 ```
 Then build the images:
 ```bash
