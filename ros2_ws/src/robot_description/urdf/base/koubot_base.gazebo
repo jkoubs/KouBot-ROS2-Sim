@@ -1,5 +1,29 @@
 <?xml version="1.0"?>
 <robot>
+
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FRICTION & STIFNESS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+
+    <!--
+
+    mu1: The static friction coefficient. 
+    It is how much friction there is until the object starts moving in simple terms.
+
+    mu2: The dynamic friction coefficient. 
+    It is how much friction there is when the object moves in simple terms. 
+    
+    kp: This coefficient sets the static contact stiffness. 
+    This determines whether the linked material is closer to marble (rigid, bigger values) 
+    or more like rubber (soft material, lower values).
+
+    kd: This coefficient sets the dynamic contact stiffness. 
+    This determines whether the linked material is closer to marble (rigid, bigger values) 
+    or more like rubber (soft material, lower values). 
+    It is essentially how much it deforms over a long period, exerting its pressure.
+
+    -->
+
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+
     <gazebo reference="front_left_wheel">
         <!-- <kp>1000000000000000000000000000.0</kp>
         <kd>1000000000000000000000000000.0</kd> -->
@@ -25,6 +49,8 @@
         <mu2>0.1</mu2>
     </gazebo>
 
+    <!-- Gazebo Control - Omni-steering -->
+    
     <gazebo>
         <plugin name="omni_steering" filename="libgazebo_ros_planar_move.so">
             <commandTopic>cmd_vel</commandTopic>

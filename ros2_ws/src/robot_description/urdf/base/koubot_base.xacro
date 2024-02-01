@@ -33,28 +33,6 @@
         />
     </xacro:macro>
 
-    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FRICTION & STIFNESS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
-
-    <!--
-
-    mu1: The static friction coefficient. 
-    It is how much friction there is until the object starts moving in simple terms.
-
-    mu2: The dynamic friction coefficient. 
-    It is how much friction there is when the object moves in simple terms. 
-    
-    kp: This coefficient sets the static contact stiffness. 
-    This determines whether the linked material is closer to marble (rigid, bigger values) 
-    or more like rubber (soft material, lower values).
-
-    kd: This coefficient sets the dynamic contact stiffness. 
-    This determines whether the linked material is closer to marble (rigid, bigger values) 
-    or more like rubber (soft material, lower values). 
-    It is essentially how much it deforms over a long period, exerting its pressure.
-
-    -->
-
-    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
     <!-- BASE FOOTPRINT -->
     <link name="base_footprint">
         <visual>
@@ -237,6 +215,8 @@
         <child link="front_laser" />
     </joint> -->
 
+    <!-- Add Gazebo Properties from file named koubot_base.gazebo -->
+    
     <xacro:include filename="$(find robot_description)/urdf/base/koubot_base.gazebo" />
 
 </robot>
