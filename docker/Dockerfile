@@ -1,4 +1,4 @@
-FROM galactic_env:latest
+FROM galactic_env:v2
 # ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
 
@@ -17,7 +17,7 @@ RUN source /opt/ros/galactic/setup.bash && \
     apt-get update --fix-missing && \
     cd /ros2_ws  && \
     # This installs dpdencies declared in package.xml from all pkgs in the src folder for ROS 2 Galactic
-    rosdep install -i --from-path src --rosdistro galactic -y && \
+    rosdep install -i --from-path src --rosdistro galactic -y --skip-keys rviz && \
     # Build env_ws
     colcon build --symlink-install 
 

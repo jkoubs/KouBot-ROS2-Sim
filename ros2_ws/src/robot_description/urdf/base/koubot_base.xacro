@@ -15,6 +15,15 @@
     <xacro:property name="wheel_offset_y" value="0.114"/>
     <xacro:property name="wheel_offset_z" value="0.04"/>
 
+    <xacro:property name="lidar_mass" value="0.2"/>
+    <xacro:property name="lidar_radius" value="0.035"/>
+    <xacro:property name="lidar_length" value="0.05"/>
+
+    <xacro:property name="oakd_length" value="0.091" />
+    <xacro:property name="oakd_width" value="0.028" />
+    <xacro:property name="oakd_depth" value="0.0175" />
+    <xacro:property name="oakd_mass" value="0.061" />
+
     <xacro:property name="M_PI" value="3.141592654"/>
 
     <!--Inertia Calculator for Chassis-->
@@ -25,11 +34,27 @@
         />
     </xacro:macro>
 
+    <!--Inertia Calculator for Camera-->
+    <xacro:macro name="camera_inertia" params="mass_camera x y z">
+        <inertia  ixx="${mass_camera*(y*y+z*z)/12.0}" ixy = "0" ixz = "0"
+              iyy="${mass_camera*(x*x+z*z)/12.0}" iyz = "0"
+              izz="${mass_camera*(x*x+y*y)/12.0}"
+        />
+    </xacro:macro>
+
     <!--Inertia Calculator for Wheels-->
     <xacro:macro name="wheels_inertia" params="mass_wheel r h">
         <inertia  ixx="${mass_wheel*(3*r*r + h*h)/12.0}" ixy = "0" ixz = "0"
               iyy="${mass_wheel*(3*r*r + h*h)/12.0}" iyz = "0"
               izz="${mass_wheel*(r*r)/2.0}"
+        />
+    </xacro:macro>
+
+    <!--Inertia Calculator for LiDAR-->
+    <xacro:macro name="lidar_inertia" params="mass_lidar r h">
+        <inertia  ixx="${mass_lidar*(3*r*r + h*h)/12.0}" ixy = "0" ixz = "0"
+              iyy="${mass_lidar*(3*r*r + h*h)/12.0}" iyz = "0"
+              izz="${mass_lidar*(r*r)/2.0}"
         />
     </xacro:macro>
 
@@ -198,22 +223,72 @@
         </visual>
     </link>
 
+<!--###########################################################################-->
+    <!-- LiDAR - RPA1-->
 
-    <!-- FRONT LASER -->
-    <!-- <link name="front_laser">
+    <link name="lidar_link" type="laser">
+        <inertial>
+            <mass value="${lidar_mass}"/>
+            <origin rpy="0 0 0.0" xyz="0 0 0.0"/>
+            <xacro:lidar_inertia mass_lidar="${lidar_mass}" r="${lidar_radius}" h="${lidar_length}"/>
+        </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin rpy="1.57 0 ${M_PI}" xyz="0.08 -0.033 -0.06"/>
             <geometry>
-                <box size="0.001 0.001 0.001" />
+                <mesh filename="package://robot_description/meshes/lidar.dae" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.058 0.0 -0.036"/>
+            <geometry>
+                <cylinder length="${lidar_length}" radius="${lidar_radius}"/>
+            </geometry>
+        </collision>
     </link>
 
-    <joint name="front_laser_joint" type="fixed">
-        <origin xyz="0.65 0 0.075" rpy="3.14159265359 0 0" />
+    <joint name="lidar_joint" type="fixed">
+        <axis xyz="0 1 0"/>
+        <origin rpy="0 0 0" xyz="0.0 0 0.115"/>
         <parent link="base_link"/>
-        <child link="front_laser" />
-    </joint> -->
+        <child link="lidar_link"/>
+    </joint>
+
+<!--###########################################################################-->
+
+
+    <!-- Camera - Oak-D Lite -->
+
+    <link name="camera_oakd_lite">
+        <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+        <inertial>
+            <mass value="${oakd_mass}"/>
+            <origin rpy="0 0 0.0" xyz="0 0 0"/>
+            <xacro:camera_inertia mass_camera="${oakd_mass}" x="${oakd_length}" y="${oakd_width}" z="${oakd_depth}"/>
+        </inertial>
+        <visual>
+            <origin rpy="${M_PI/8} 0 0" xyz="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/OAK-D-LITE.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size="${oakd_length} ${oakd_width} ${oakd_depth}"/>
+            </geometry>
+        </collision>
+    </link>
+      
+      <!-- Camera joint -->
+
+    <joint name="camera_joint" type="fixed">
+        <!-- Point cloud frustrum is 90 degrees off from visual frame --> 
+        <origin rpy="${-M_PI/2} 0 ${M_PI/2}" xyz="0.08 -0.042 0.15" />
+        <parent link="base_link" />
+        <child link="camera_oakd_lite" />
+    </joint> 
+
+<!--###########################################################################-->
 
     <!-- Add Gazebo Properties from file named koubot_base.gazebo -->
     
