@@ -227,19 +227,20 @@
     <!-- LiDAR - RPA1-->
 
     <link name="lidar_link" type="laser">
+        
         <inertial>
             <mass value="${lidar_mass}"/>
             <origin rpy="0 0 0.0" xyz="0 0 0.0"/>
             <xacro:lidar_inertia mass_lidar="${lidar_mass}" r="${lidar_radius}" h="${lidar_length}"/>
         </inertial>
         <visual>
-            <origin rpy="1.57 0 ${M_PI}" xyz="0.08 -0.033 -0.06"/>
+            <origin rpy="1.57 0 ${M_PI}" xyz="-0.015 -0.033 -0.06"/>
             <geometry>
                 <mesh filename="package://robot_description/meshes/lidar.dae" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="0.058 0.0 -0.036"/>
+            <origin rpy="0 0 0" xyz="-0.037 0.0 -0.036"/>
             <geometry>
                 <cylinder length="${lidar_length}" radius="${lidar_radius}"/>
             </geometry>
@@ -247,14 +248,59 @@
     </link>
 
     <joint name="lidar_joint" type="fixed">
-        <axis xyz="0 1 0"/>
-        <origin rpy="0 0 0" xyz="0.0 0 0.115"/>
+        <origin rpy="0 0 0" xyz="0.095 0 0.112"/>
         <parent link="base_link"/>
         <child link="lidar_link"/>
     </joint>
 
+
+    <!--Laser sensor plugin-->
+    <gazebo reference="lidar_link">
+        <sensor name="head_hokuyo_sensor" type="ray">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>20</update_rate>
+            <always_on>true</always_on>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>1080</samples>
+                        <resolution>1.0</resolution>
+                        <min_angle>-1.570796</min_angle>
+                        <max_angle>1.570796</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.02</min>
+                    <max>10.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="laser" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <remapping>~/out:=laser_scan</remapping>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>lidar_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
 <!--###########################################################################-->
 
+      <!-- Camera joint -->
+
+    <joint name="camera_joint" type="fixed">
+        <!-- Point cloud frustrum is 90 degrees off from visual frame --> 
+        <origin rpy="${-M_PI/2} 0 ${M_PI/2}" xyz="0.08 -0.042 0.15" />
+        <parent link="base_link" />
+        <child link="camera_oakd_lite" />
+    </joint> 
 
     <!-- Camera - Oak-D Lite -->
 
@@ -279,15 +325,61 @@
         </collision>
     </link>
       
-      <!-- Camera joint -->
 
-    <joint name="camera_joint" type="fixed">
-        <!-- Point cloud frustrum is 90 degrees off from visual frame --> 
-        <origin rpy="${-M_PI/2} 0 ${M_PI/2}" xyz="0.08 -0.042 0.15" />
-        <parent link="base_link" />
-        <child link="camera_oakd_lite" />
-    </joint> 
+    <joint name="camera_optical_joint" type="fixed">
+        <parent link="camera_oakd_lite"/>
+        <child link="camera_link_optical"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
 
+    <link name="camera_link_optical"></link>
+
+    <!-- <gazebo reference="camera_oakd_lite">
+        <material>Gazebo/Red</material>
+
+        <sensor name="camera" type="camera">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <camera>
+                <horizontal_fov>1.089</horizontal_fov>
+                <image>
+                    <format>R8G8B8</format>
+                    <width>640</width>
+                    <height>480</height>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>8.0</far>
+                </clip>
+            </camera>
+
+            <plugin name="depth_camera_controller" filename="libgazebo_ros_camera.so">
+                <baseline>0.2</baseline>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <frame_name>camera_frame</frame_name>
+                <pointCloudCutoff>0.2</pointCloudCutoff>
+                <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
+                <distortionK1>0</distortionK1>
+                <distortionK2>0</distortionK2>
+                <distortionK3>0</distortionK3>
+                <distortionT1>0</distortionT1>
+                <distortionT2>0</distortionT2>
+                <CxPrime>0</CxPrime>
+                <Cx>0</Cx>
+                <Cy>0</Cy>
+                <focalLength>0</focalLength>
+                <hackBaseline>0</hackBaseline>
+                <ros>
+                    <imageTopicName>/camera/color/image_raw</imageTopicName>
+                    <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
+                    <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+                    <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+                </ros> 
+            </plugin>
+        </sensor>
+    </gazebo> -->
 <!--###########################################################################-->
 
     <!-- Add Gazebo Properties from file named koubot_base.gazebo -->
