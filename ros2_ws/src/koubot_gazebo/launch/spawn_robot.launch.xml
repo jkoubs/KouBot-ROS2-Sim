@@ -1,5 +1,7 @@
 <?xml version='1.0' ?>
 <launch>
+
+  <!-- <env name="GAZEBO_MODEL_PATH" value="/ros2_ws/install/koubot_gazebo/share/koubot_gazebo/models:${GAZEBO_MODEL_PATH}"/> -->
   <!-- Launch Gazebo -->
   <include file="$(find-pkg-share koubot_gazebo)/launch/start_world.launch.py"/>
   <!-- Publish URDF file in robot_description topic -->

@@ -258,7 +258,7 @@
     <gazebo reference="lidar_link">
         <sensor name="head_hokuyo_sensor" type="ray">
             <pose>0 0 0 0 0 0</pose>
-            <visualize>true</visualize>
+            <visualize>false</visualize>
             <update_rate>20</update_rate>
             <always_on>true</always_on>
             <ray>
@@ -297,7 +297,7 @@
 
     <joint name="camera_joint" type="fixed">
         <!-- Point cloud frustrum is 90 degrees off from visual frame --> 
-        <origin rpy="${-M_PI/2} 0 ${M_PI/2}" xyz="0.08 -0.042 0.15" />
+        <origin rpy="0 0 0" xyz="0.1 0 0.15" />
         <parent link="base_link" />
         <child link="camera_oakd_lite" />
     </joint> 
@@ -312,13 +312,13 @@
             <xacro:camera_inertia mass_camera="${oakd_mass}" x="${oakd_length}" y="${oakd_width}" z="${oakd_depth}"/>
         </inertial>
         <visual>
-            <origin rpy="${M_PI/8} 0 0" xyz="0.0 0.0 0.0" />
+            <origin rpy="${M_PI/2} 0 -${M_PI/2}" xyz="-0.01 0.04 -0.02" />
             <geometry>
                 <mesh filename="package://robot_description/meshes/OAK-D-LITE.dae" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0" />
+            <origin rpy="${M_PI/2} 0 -${M_PI/2}" xyz="-0.01 0.0 -0.01" />
             <geometry>
                 <box size="${oakd_length} ${oakd_width} ${oakd_depth}"/>
             </geometry>
@@ -328,15 +328,30 @@
 
     <joint name="camera_optical_joint" type="fixed">
         <parent link="camera_oakd_lite"/>
+        <!-- <axis rpy="0 0 0" xyz="0 1 0" /> -->
         <child link="camera_link_optical"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0 0.0" rpy="0 0 0"/>
     </joint>
 
-    <link name="camera_link_optical"></link>
+    <link name="camera_link_optical"></link>\
 
-    <!-- <gazebo reference="camera_oakd_lite">
-        <material>Gazebo/Red</material>
 
+    <!-- depth camera -->
+    <joint name="camera_depth_optical_joint" type="fixed">
+        <parent link="camera_oakd_lite"/>
+        <!-- <axis rpy="0 0 0" xyz="0 1 0" /> -->
+        <child link="camera_depth_link_optical"/>
+        <origin xyz="0 0 0.0" rpy="${M_PI/2} ${M_PI} ${M_PI/2}"/>
+    </joint>
+
+     <link name="camera_depth_link_optical"></link>
+    <!-- depth camera -->
+
+
+    <gazebo reference="camera_oakd_lite">
+        <!-- <material>Gazebo/Red</material> -->
+
+        <!-- camera sensor -->
         <sensor name="camera" type="camera">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
@@ -355,10 +370,11 @@
             </camera>
 
             <plugin name="depth_camera_controller" filename="libgazebo_ros_camera.so">
-                <baseline>0.2</baseline>
+                <frame_name>camera_link_optical</frame_name>
+                <topicName>/camera/image_raw</topicName>
+                <!-- <baseline>0.2</baseline>
                 <alwaysOn>true</alwaysOn>
                 <updateRate>0.0</updateRate>
-                <frame_name>camera_frame</frame_name>
                 <pointCloudCutoff>0.2</pointCloudCutoff>
                 <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
                 <distortionK1>0</distortionK1>
@@ -376,10 +392,43 @@
                     <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
                     <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
                     <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
-                </ros> 
+                </ros>  -->
             </plugin>
         </sensor>
-    </gazebo> -->
+
+        <!-- Point Cloud Sensor -->
+        <sensor name="point_cloud_sensor" type="depth">
+            <!-- Adjust the pose of the point cloud sensor relative to the camera link -->
+            <pose>0 0 0 0 0 0</pose>
+            <!-- Define parameters for the point cloud sensor -->
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <depth>
+                <!-- Adjust depth sensor parameters as needed -->
+                <horizontal_fov>1.089</horizontal_fov>
+                <!-- <image>
+                    <format>B8R8G8</format>
+                    <width>640</width>
+                    <height>480</height>
+                </image> -->
+                <!-- Specify clip planes if needed -->
+                <clip>
+                    <near>0.05</near>
+                    <far>8.0</far>
+                </clip>
+            </depth>
+            <!-- Plugin for handling point cloud data -->
+            <plugin name="point_cloud_controller" filename="libgazebo_ros_camera.so">
+                <!-- Specify the TF frame for the point cloud sensor -->
+                <frame_name>camera_depth_link_optical</frame_name>
+                <!-- Publish point cloud data to this topic -->
+                <topicName>/point_cloud_sensor/points</topicName>
+                <!-- Specify the encoding for the point cloud data -->
+                <encoding>B8G8R8</encoding> <!-- Assuming your plugin supports BGR for point clouds -->
+
+            </plugin>
+        </sensor>
+    </gazebo>
 <!--###########################################################################-->
 
     <!-- Add Gazebo Properties from file named koubot_base.gazebo -->
