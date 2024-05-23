@@ -2,7 +2,7 @@ version: '3' # version of docker-compose
 
 services:
   tasks: # name of the container
-    image: koubot_ros2:v3
+    image: koubot_ros2
     container_name: koubot_ros2_container
     network_mode: host
     privileged: true

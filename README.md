@@ -2,24 +2,69 @@
 
 # Table of Contents
  - [About](#about)
- - [Packages](#packages)
- - [Install](#installation-instructions)
- - [System at a glance](#system-at-a-glance)
+    - [Project Goals](#project-goals)
+    - [Key Features](#key-features)
+    - [Power System](#power-system)
+ - [Install](#install)
  - [Simulation](#simulation)
-   - [Autonomous Navigation](#autonomous-navigation)
-   - [Manipulation Pipeline](#manipulation-pipeline)
-   - [Perception Pipeline](#perception-pipeline)
-   - [Fetch-and-Carry Mission](#fetch-and-carry-mission)
+    - [Autonomous Navigation](#autonomous-navigation)
+      - [Teleoperation](#teleoperation)
+      - [Mapping](#mapping)
+      - [Localization](#localization)
+      - [Path Planning](#path-planning)
  - [Real Robot](#real-robot)
- - [Docker](#docker)
+ - [What has been done](#what-has-been-done)
+ - [Challenges](#challenges)
 
 # About 
 
-In progress ...
+<div style="text-align: center;">
+  <img src="doc/base_v2.png" alt="base" width="400"/>
+</div>
 
-# Packages
 
-In progress ...
+Welcome to the <em>Koubot</em> project repository! <em>Koubot</em>  is an ambitious project aimed at developing an autonomous mobile robot equipped with **four mecanum wheels**, each powered by its own motor. This unique wheel configuration allows for omnidirectional movement, making <em>Koubot</em> highly maneuverable and capable of navigating complex environments with ease.
+
+
+<div style="text-align: center;">
+  <img src="doc/koubot_rviz_v2.png" alt="base" width="400"/>
+</div>
+
+## Project Goals
+
+One of the primary goals of the <em>Koubot</em> project is to achieve advanced **sensor fusion**, integrating data from multiple sensors to enhance the robot's odometry. By fusing data from an IMU (Inertial Measurement Unit) and GPS, <em>Koubot</em> will be able to:
+
+
+* Accurately detect and avoid obstacles
+* Map and navigate unfamiliar environments
+* Perform tasks autonomously with high precision
+
+## Key Features
+
+
+* **Computer**: Raspberry Pi Model B.
+
+* **Software**: ROS 2 Galactic, Docker container, Gazebo, RViz.
+
+* **Sensors**: LiDAR (RPLIDAR-A1M8 by Slamtec), Depth camera (OAK-D Lite), IMU (Adafruit - BNO055), GPS (Adafruit - Ultimate GPS Breakout v3).
+
+* **Mecanum Wheel Configuration**: Each of the 4 wheels is driven by its own motor, enabling omnidirectional movement for versatile navigation.
+
+* **Sensor Fusion**: Integrates data from IMU and GPS to improve odometry and overall navigation accuracy.
+
+* **
+
+## Power System
+
+
+
+![power_system](doc/power_diagram.png)
+
+The power system of <em>Koubot</em> is divided into two sections to ensure efficient and reliable operation:
+
+* **Motor Power Supply**: This section is dedicated to powering the 4 motors that drive the mecanum wheels, providing the necessary torque and control for movement.
+
+* **System Power Supply**: This section powers the computer and sensors, ensuring stable and continuous operation of the robot's processing and sensing capabilities.
 
 # Install
 
@@ -63,36 +108,53 @@ We are now <strong>inside the container</strong> and ready for executing our cod
 
 <u><strong><em>Note:</em></strong></u> For the next tasks we will consider that we are working from inside our container, in the <strong>ros2_ws</strong> workspace.
 
-# System at a glance
-
-In progress ...
 
 # Simulation
 
 ## Autonomous Navigation
 
-### 1) Teleop
+### Teleoperation
 
 Spawn the robot in Gazebo (shell # 1):
-```
+```bash
+cd /ros2_ws/
 ros2 launch koubot_gazebo spawn_robot.launch.xml
 ```
 
 Launch teleop node (shell # 2):
 
-```
+```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
+Launch RViz (shell # 3):
 
-### 2) Mapping
-### 3) Localization
-### 4) Autonomous Navigation
+```bash
+rviz2
+```
+**Note:** In RViz add the **Image** Display with the `/camera/image_raw` topic and choose **Best Effort** for the **Reliability Policy**. Also add the **PointCloud2** Display with the `/point_cloud_sensor/points` topic.
+### Mapping
+### Localization
+### Path Planning
 
 # Real Robot
 
 In progress ..
 
-# Docker
+# What has been done
 
-In progress ..
+1. Robot modeling (Using FreeCAD)
+
+2. URDF
+
+3. Added teleoperation (able to teleop in simulation)
+
+4. Communicate with robot wheels using Arduino and Platformio
+
+# Challenges
+
+1. Docker for real robot integration? Maybe better to directly install ROS 2 GAlactic on Raspberry pi (Preference toward installing Docker instead and use Docker container)
+
+2. Communicate with motors and ROS 2
+
+3. Install sensors on real robot (need to create some mounts)
