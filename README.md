@@ -54,13 +54,15 @@ One of the primary goals of the <em>Koubot</em> project is to achieve advanced *
 
 * **Sensor Fusion**: Integrates data from IMU and GPS to improve odometry and overall navigation accuracy.
 
-* **
+
 
 ## Power System
 
 
 
-![power_system](doc/power_diagram.png)
+![power_system](doc/power_diagram_full.png)
+
+<br>
 
 The power system of <em>Koubot</em> is divided into two sections to ensure efficient and reliable operation:
 
