@@ -22,9 +22,11 @@
   <img src="doc/base_v2.png" alt="base" width="400"/>
 </div>
 
+<br>
 
 Welcome to the <em>Koubot</em> project repository! <em>Koubot</em>  is an ambitious project aimed at developing an autonomous mobile robot equipped with **four mecanum wheels**, each powered by its own motor. This unique wheel configuration allows for omnidirectional movement, making <em>Koubot</em> highly maneuverable and capable of navigating complex environments with ease.
 
+<br>
 
 <div align="center">
   <img src="doc/koubot_rviz_v2.png" alt="base" width="400"/>
