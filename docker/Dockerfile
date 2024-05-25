@@ -14,7 +14,7 @@ RUN echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> 
 
 COPY /ros2_ws/ /ros2_ws/
 # Install ultralytics for YOLOv8
-RUN pip3 install ultralytics
+#RUN pip3 install ultralytics
 # Update rosdep database and install dependencies
 RUN source /opt/ros/galactic/setup.bash && \
     apt-get update --fix-missing && \
