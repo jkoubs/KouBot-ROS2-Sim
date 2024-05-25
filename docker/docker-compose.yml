@@ -16,8 +16,11 @@ services:
       # things will be written at /tmp/.X11-unix/X0
       # ---------------------------------------------------------------------
       - /tmp/.X11-unix:/tmp/.X11-unix
-      # - $GOAL_CHECKER_PATH/ros2_ws/src:/ros2_ws/src:rw
-      - $HOME/Projects/koubot_ros2/ros2_ws/src:/ros2_ws/src:rw
+
+      ###################### IMPORTANT: ######################
+      ############## CHOOSE CORRECT PATH OF YOUR SYSTEM ##############
+      ###################### IMPORTANT: ######################
+      - $HOME/Projects/KouBot-ROS2/ros2_ws/src:/ros2_ws/src:rw
     environment: # set ENV vars
       - DISPLAY # Forward the DISPLAY variable of the host to the container
       - QT_X11_NO_MITSHM=1 # Taken from https://answers.ros.org/question/391195/using-rviz-in-docker/?answer=391504#post-id-391504
