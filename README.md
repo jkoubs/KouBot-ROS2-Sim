@@ -88,7 +88,7 @@ Then build the images:
 cd ros2_galactic/docker
 docker build -f Dockerfile -t galactic_env .
 cd ../..
-cd koubot_ros2/docker
+cd KouBot-ROS2/docker
 docker build -f Dockerfile -t koubot_ros2 ../
 ```
 <strong><em>Note</em></strong>: <strong>../</strong> represents the PATH context which sets the target context one level above to the <strong>koubot_ros2</strong> directory in order to successfully execute the COPY command from the Dockerfile which will copy the <strong>ros2_ws</strong> inside the container.
@@ -157,7 +157,7 @@ In progress ..
 
 # Challenges
 
-1. Docker for real robot integration? Maybe better to directly install ROS 2 GAlactic on Raspberry pi (Preference toward installing Docker instead and use Docker container)
+1. Docker for real robot integration? Maybe better to directly install ROS 2 Galactic on Raspberry Pi (Preference toward installing Docker instead and use Docker container)
 
 2. Communicate with motors and ROS 2
 
