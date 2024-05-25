@@ -105,7 +105,7 @@ xhost +local:root
 **IMPORTANT NOTE:** Before running the container be sure to **edit the docker-compose.yml file and rename the path according to your local environment to properly mount your host directory into the container**.
 
 <div align="center">
-  <img src="doc/instructions.png" alt="base"/>
+  <img src="doc/docker_instructions.png" alt="base"/>
 </div>
 
 We can now run the image as a container named <strong>koubot_ros2_container</strong> using docker-compose :
