@@ -102,7 +102,7 @@ Next we will create the container:
 xhost +local:root
 ```
 
-**IMPORTANT NOTE:** Before running the container be sure to **edit the docker-compose.yml file** and rename the path according to your local environment to properly **mount your host directory into the container**.
+**IMPORTANT NOTE:** Before running the container be sure to **edit the docker-compose.yml file and rename the path according to your local environment to properly mount your host directory into the container**.
 
 <div align="center">
   <img src="doc/instructions.png" alt="base"/>
