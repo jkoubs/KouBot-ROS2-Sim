@@ -153,18 +153,31 @@ In progress ..
 
 # What has been done
 
-1. Robot modeling (Using FreeCAD)
+## 1. Robot modeling (Using FreeCAD) + URDF
 
-2. URDF
+<div align="center">
+  <img src="doc/koubot_rviz_v2.png" alt="base"/>
+</div>
 
-3. Added teleoperation (able to teleop in simulation)
+## 2. Added teleoperation (able to teleop in simulation)
 
-4. Communicate with robot wheels using Arduino and Platformio
+
+<div align="center">
+  <img src="doc/teleop.gif" alt="Demo"/>
+</div>
+
+## 3. Communicate with robot wheels using Arduino and Platformio
+
+<div align="center">
+  <img src="doc/control.gif" alt="Demo"/>
+</div>
+
+## 4. Installed sensors on real robot (LiDAR + Camera)
 
 # Challenges
 
-1. Docker for real robot integration? Maybe better to directly install ROS 2 Galactic on Raspberry Pi (Preference toward installing Docker instead and use Docker container)
+## 1. Docker for real robot integration? Maybe better to directly install ROS 2 Galactic on Raspberry Pi (Preference toward installing Docker instead and use Docker container)
 
-2. Communicate with motors and ROS 2
+## 2. Communicate with motors and ROS 2
 
-3. Install sensors on real robot (need to create some mounts)
+## 3. Install IMU
