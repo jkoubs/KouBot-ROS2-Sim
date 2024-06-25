@@ -169,7 +169,7 @@ In progress ..
 ## 3. Communicate with robot wheels using Arduino and Platformio
 
 <div align="center">
-  <img src="doc/wheel_control.gif" alt="Demo"/>
+  <img src="doc/control_wheels.gif" alt="Demo"/>
 </div>
 
 ## 4. Installed sensors on real robot (LiDAR + Camera)
