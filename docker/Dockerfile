@@ -1,5 +1,5 @@
 # FROM galactic_env
-FROM jkoubi/galactic_env:multi_platform
+FROM jkoubi/galactic_env:v1
 # ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
 
@@ -19,8 +19,8 @@ COPY /ros2_ws/ /ros2_ws/
 # Update rosdep database and install dependencies
 RUN source /opt/ros/galactic/setup.bash && \
     apt-get update --fix-missing && \
-    #cd /ros2_ws/src  && \
-    #git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git && \
+    cd /ros2_ws/src  && \
+    git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git && \
     # This installs dpdencies declared in package.xml from all pkgs in the src folder for ROS 2 Galactic
     cd /ros2_ws/ && \
     rosdep install -i --from-path src --rosdistro galactic -y --skip-keys rviz && \
