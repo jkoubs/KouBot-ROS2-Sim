@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='plant_small'>
+    <link name='link_1'>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://plant_small/meshes/plant_small.dae</uri>            
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+        <cast_shadows>0</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      
+    </link>
+
+    <static>1</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

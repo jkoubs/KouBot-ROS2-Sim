@@ -1,0 +1,709 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.6">
+  <world name="default">
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Lighting -->
+    <light name='user_point_light_0' type='point'>
+      <pose>0.30294 6 2 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.6</constant>
+        <linear>0.02</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 0</direction>
+    </light>
+
+    <!-- Add point lights to enhance lighting -->
+    <light name="point_light_1" type="point">
+      <pose>5 5 5 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1.0</diffuse>
+      <specular>0.5 0.5 0.5 1.0</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="point_light_2" type="point">
+      <pose>-5 5 5 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1.0</diffuse>
+      <specular>0.5 0.5 0.5 1.0</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="point_light_3" type="point">
+      <pose>5 -5 5 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1.0</diffuse>
+      <specular>0.5 0.5 0.5 1.0</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <light name="point_light_4" type="point">
+      <pose>-5 -5 5 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1.0</diffuse>
+      <specular>0.5 0.5 0.5 1.0</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+
+    <!-- Plants -->
+
+    <include>
+      <uri>model://plant</uri>
+      <name>plant_1</name>
+      <pose>-4.0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant</uri>
+      <name>plant_2</name>
+      <pose>-3.0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant</uri>
+      <name>plant_3</name>
+      <pose>-2.0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant</uri>
+      <name>plant_4</name>
+      <pose>-1.0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant</uri>
+      <name>plant_5</name>
+      <pose>0.0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant</uri>
+      <name>plant_6</name>
+      <pose>1.0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- Small Plants -->
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_11</name>
+      <pose>-3.65 0.03 0.012213 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_12</name>
+      <pose>-3.35 -0.04 0.012213 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_21</name>
+      <pose>-2.7 -0.06 0.012213 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_22</name>
+      <pose>-2.58 0.1 0.012213 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_31</name>
+      <pose>-1.52 0.04 0.012213 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_32</name>
+      <pose>-1.39 -0.08 0.012213 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_41</name>
+      <pose>-0.52 -0.04 0.012213 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_42</name>
+      <pose>-0.3 -0.09 0.012213 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_51</name>
+      <pose>0.25 0.1 0.012213 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_small</uri>
+      <name>plant_small_52</name>
+      <pose>0.7 0.07 0.012213 0 0 0</pose>
+    </include>
+
+    <!-- MUD SMALL -->
+    <!-- Generate a 10x10 grid of mud_small models -->
+    <!-- The grid is centered at (0, 0) -->
+    <!-- Each cell in the grid is 1 meter by 1 meter -->
+    <!-- The top left is (-4.5, 4.5) and the bottom right is (4.5, -4.5) -->
+
+    <!-- Line 1 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_1</name>
+      <pose>-4.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_2</name>
+      <pose>-3.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_3</name>
+      <pose>-2.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_4</name>
+      <pose>-1.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_5</name>
+      <pose>-0.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_6</name>
+      <pose>0.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_7</name>
+      <pose>1.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_8</name>
+      <pose>2.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_9</name>
+      <pose>3.5 4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_10</name>
+      <pose>4.5 4.5 0 0 0 0</pose>
+    </include>
+
+
+    <!-- Line 2 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_11</name>
+      <pose>-4.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_12</name>
+      <pose>-3.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_13</name>
+      <pose>-2.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_14</name>
+      <pose>-1.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_15</name>
+      <pose>-0.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_16</name>
+      <pose>0.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_17</name>
+      <pose>1.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_18</name>
+      <pose>2.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_19</name>
+      <pose>3.5 3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_20</name>
+      <pose>4.5 3.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 3 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_21</name>
+      <pose>-4.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_22</name>
+      <pose>-3.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_23</name>
+      <pose>-2.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_24</name>
+      <pose>-1.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_25</name>
+      <pose>-0.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_26</name>
+      <pose>0.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_27</name>
+      <pose>1.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_28</name>
+      <pose>2.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_29</name>
+      <pose>3.5 2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_30</name>
+      <pose>4.5 2.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 4 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_31</name>
+      <pose>-4.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_32</name>
+      <pose>-3.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_33</name>
+      <pose>-2.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_34</name>
+      <pose>-1.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_35</name>
+      <pose>-0.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_36</name>
+      <pose>0.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_37</name>
+      <pose>1.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_38</name>
+      <pose>2.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_39</name>
+      <pose>3.5 1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_40</name>
+      <pose>4.5 1.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 5 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_41</name>
+      <pose>-4.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_42</name>
+      <pose>-3.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_43</name>
+      <pose>-2.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_44</name>
+      <pose>-1.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_45</name>
+      <pose>-0.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_46</name>
+      <pose>0.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_47</name>
+      <pose>1.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_48</name>
+      <pose>2.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_49</name>
+      <pose>3.5 0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_50</name>
+      <pose>4.5 0.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 6 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_51</name>
+      <pose>-4.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_52</name>
+      <pose>-3.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_53</name>
+      <pose>-2.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_54</name>
+      <pose>-1.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_55</name>
+      <pose>-0.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_56</name>
+      <pose>0.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_57</name>
+      <pose>1.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_58</name>
+      <pose>2.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_59</name>
+      <pose>3.5 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_60</name>
+      <pose>4.5 -0.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 7 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_61</name>
+      <pose>-4.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_62</name>
+      <pose>-3.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_63</name>
+      <pose>-2.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_64</name>
+      <pose>-1.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_65</name>
+      <pose>-0.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_66</name>
+      <pose>0.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_67</name>
+      <pose>1.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_68</name>
+      <pose>2.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_69</name>
+      <pose>3.5 -1.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_70</name>
+      <pose>4.5 -1.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 8 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_71</name>
+      <pose>-4.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_72</name>
+      <pose>-3.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_73</name>
+      <pose>-2.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_74</name>
+      <pose>-1.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_75</name>
+      <pose>-0.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_76</name>
+      <pose>0.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_77</name>
+      <pose>1.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_78</name>
+      <pose>2.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_79</name>
+      <pose>3.5 -2.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_80</name>
+      <pose>4.5 -2.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 9 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_81</name>
+      <pose>-4.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_82</name>
+      <pose>-3.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_83</name>
+      <pose>-2.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_84</name>
+      <pose>-1.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_85</name>
+      <pose>-0.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_86</name>
+      <pose>0.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_87</name>
+      <pose>1.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_88</name>
+      <pose>2.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_89</name>
+      <pose>3.5 -3.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_90</name>
+      <pose>4.5 -3.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Line 10 -->
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_91</name>
+      <pose>-4.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_92</name>
+      <pose>-3.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_93</name>
+      <pose>-2.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_94</name>
+      <pose>-1.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_95</name>
+      <pose>-0.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_96</name>
+      <pose>0.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_97</name>
+      <pose>1.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_98</name>
+      <pose>2.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_99</name>
+      <pose>3.5 -4.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://mud_small</uri>
+      <name>mud_small_100</name>
+      <pose>4.5 -4.5 0 0 0 0</pose>
+    </include>
+
+    <!-- MUD SMALL -->
+  </world>
+</sdf>
