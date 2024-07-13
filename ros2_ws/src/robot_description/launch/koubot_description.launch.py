@@ -29,7 +29,11 @@ def generate_launch_description():
         emulate_tty=True,
         # parameters=[{'use_sim_time': True, 'robot_description': Command(
         #     ['xacro ', robot_desc_path])}],
-        parameters=[{'robot_description': launch_ros.descriptions.ParameterValue(Command(['xacro ',os.path.join('src',package_description,'urdf/base/koubot_base.xacro')]), value_type=str)  }],
+        parameters=[
+            {'robot_description': launch_ros.descriptions.ParameterValue(Command(['xacro ',os.path.join('src',package_description,'urdf/base/koubot_base.xacro')]), value_type=str
+            )},
+            {'use_sim_time': True}
+            ],
         output="screen"
     )
 
@@ -38,6 +42,7 @@ def generate_launch_description():
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher_node',
+        parameters=[{'use_sim_time': True}],
         output="screen"
     )
 
@@ -46,12 +51,13 @@ def generate_launch_description():
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
         name='joint_state_publisher_gui_node',
+        parameters=[{'use_sim_time': True}],
         output="screen"
     )
 
     # 4) RVIZ Configuration
     rviz_config_dir = os.path.join(get_package_share_directory(
-        package_description), 'rviz', 'camera.rviz')
+        package_description), 'rviz', 'urdf.rviz')
 
     rviz_node = Node(
         package='rviz2',

@@ -125,25 +125,127 @@ We are now <strong>inside the container</strong> and ready for executing our cod
 
 ### Teleoperation
 
-Spawn the robot in Gazebo (shell # 1):
+Spawn the robot in Gazebo:
+
+<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
+    </svg>
+    &nbsp;
+    Execute in Terminal 1
+    
+</span>
+
 ```bash
 cd /ros2_ws/
 ros2 launch koubot_gazebo spawn_robot.launch.xml
 ```
 
-Launch teleop node (shell # 2):
+Launch teleop node:
+
+<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
+    </svg>
+    &nbsp;
+    Execute in Terminal 2
+    
+</span>
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-Launch RViz (shell # 3):
+
+Launch RViz:
+
+<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
+    </svg>
+    &nbsp;
+    Execute in Terminal 3
+    
+</span>
 
 ```bash
 rviz2
 ```
 **Note:** In RViz add the **Image** Display with the `/camera/image_raw` topic and choose **Best Effort** for the **Reliability Policy**. Also add the **PointCloud2** Display with the `/point_cloud_sensor/points` topic.
+
+
 ### Mapping
+
+Launch the simulation:
+
+<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
+    </svg>
+    &nbsp;
+    Execute in Terminal 1
+    
+</span>
+
+```bash
+ros2 launch koubot_gazebo spawn_robot_ttbot3.launch.xml
+```
+
+Launch the slam node:
+
+<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
+    </svg>
+    &nbsp;
+    Execute in Terminal 2
+    
+</span>
+
+```bash
+ros2 launch koubot_slam slam.launch.py
+```
+
+Now, using teleop, move the robot around to perform the map of the environment:
+
+<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
+    </svg>
+    &nbsp;
+    Execute in Terminal 3
+    
+</span>
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+Once you are done creating the map, save it:
+
+
+<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
+    </svg>
+    &nbsp;
+    Execute in Terminal 4
+    
+</span>
+
+```bash
+cd /ros2_ws/src/koubot_nav/maps/
+ros2 run nav2_map_server map_saver_cli -f map
+```
+
+This will create two files (`map.yaml` & `map.pgm`) to represent the map. Those files are located insisde the koubot_nav package:
+
+```bash
+koubot_nav/
+  └── maps/
+    ├── map.pgm
+    └── map.yaml
+```
 ### Localization
 ### Path Planning
 
@@ -172,12 +274,13 @@ In progress ..
   <img src="doc/control_wheels.gif" alt="Demo"/>
 </div>
 
-## 4. Installed sensors on real robot (LiDAR + Camera)
+## 4. Installed sensors on real robot (LiDAR + Camera + IMU)
+
+## 5. Mapping done
 
 # Challenges
 
-## 1. Docker for real robot integration? Maybe better to directly install ROS 2 Galactic on Raspberry Pi (Preference toward installing Docker instead and use Docker container)
+## 1. Get GUI application working with remote machine
 
 ## 2. Communicate with motors and ROS 2
 
-## 3. Install IMU

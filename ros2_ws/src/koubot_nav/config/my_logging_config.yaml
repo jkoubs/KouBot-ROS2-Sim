@@ -1,0 +1,15 @@
+handlers:
+  console:
+    console:
+      format: '[${severity}] [${name}]: ${message}'
+      colorize: true
+      formatter: colored
+      colors:
+        debug: white
+        info: yellow   # Set INFO log level to yellow
+        warn: magenta
+        error: red
+        fatal: red
+loggers:
+  ROOT:
+    handlers: [console]

@@ -13,6 +13,9 @@ find_package(ament_cmake REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+  find_package(rclpy REQUIRED)
+  find_package(nav2_amcl REQUIRED)
+  find_package(nav2_map_server REQUIRED)
   # the following line skips the linter which checks for copyrights
   # uncomment the line when a copyright and license is not present in all source files
   #set(ament_cmake_copyright_FOUND TRUE)
@@ -24,7 +27,7 @@ endif()
 install(
   DIRECTORY
     launch
-	  configs
+	  config
     maps
   DESTINATION
     share/${PROJECT_NAME}/

@@ -57,10 +57,8 @@
             <odometryTopic>odom</odometryTopic>
             <odometryFrame>odom</odometryFrame>
             <odometryRate>20.0</odometryRate>
-            <robotBaseFrame>base_link</robotBaseFrame>
-            <publishTF>true</publishTF>  <!-- change to true ?? -->
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+            <publishTF>true</publishTF>  
         </plugin>
     </gazebo>
-
-    
-</robot>
+</robot> 
