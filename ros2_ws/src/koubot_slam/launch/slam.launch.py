@@ -28,4 +28,8 @@ def generate_launch_description():
         parameters=[slam_params_file, {'use_sim_time': use_sim_time}],
     )
 
-    return LaunchDescription([use_sim_time_arg, slam_params_file_arg, slam_node])
+    return LaunchDescription([
+        use_sim_time_arg,
+        slam_params_file_arg,
+        slam_node
+    ])

@@ -25,14 +25,13 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# Install launch files
-install(DIRECTORY launch/
-  DESTINATION share/${PROJECT_NAME}/launch
-)
-
-# Install config files
-install(DIRECTORY config/
-  DESTINATION share/${PROJECT_NAME}/config
+install(
+  DIRECTORY
+    launch
+	  config
+    maps
+  DESTINATION
+    share/${PROJECT_NAME}/
 )
 
 ament_package()

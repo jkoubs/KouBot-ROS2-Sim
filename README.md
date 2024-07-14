@@ -125,48 +125,22 @@ We are now <strong>inside the container</strong> and ready for executing our cod
 
 ### Teleoperation
 
-Spawn the robot in Gazebo:
-
-<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
-    </svg>
-    &nbsp;
-    Execute in Terminal 1
-    
-</span>
+Spawn the robot in Gazebo (Terminal 1):
 
 ```bash
 cd /ros2_ws/
 ros2 launch koubot_gazebo spawn_robot.launch.xml
 ```
 
-Launch teleop node:
-
-<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
-    </svg>
-    &nbsp;
-    Execute in Terminal 2
-    
-</span>
+Launch teleop node (Terminal 2):
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 
-Launch RViz:
+Launch RViz (Terminal 3):
 
-<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
-    </svg>
-    &nbsp;
-    Execute in Terminal 3
-    
-</span>
 
 ```bash
 rviz2
@@ -176,72 +150,37 @@ rviz2
 
 ### Mapping
 
-Launch the simulation:
-
-<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
-    </svg>
-    &nbsp;
-    Execute in Terminal 1
-    
-</span>
+Launch the simulation (Terminal 1):
 
 ```bash
 ros2 launch koubot_gazebo spawn_robot_ttbot3.launch.xml
 ```
 
-Launch the slam node:
-
-<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
-    </svg>
-    &nbsp;
-    Execute in Terminal 2
-    
-</span>
+Launch the slam node (Terminal 2):
 
 ```bash
 ros2 launch koubot_slam slam.launch.py
 ```
+**IMPORTANT:** In RViz, change the **Fixed Frame** to `/map` and add a `Map` Display with the appropriate topic named `/map`.
 
-Now, using teleop, move the robot around to perform the map of the environment:
 
-<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
-    </svg>
-    &nbsp;
-    Execute in Terminal 3
-    
-</span>
+Now, using teleop, move the robot around to perform the map of the environment (Terminal 3):
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-Once you are done creating the map, save it:
-
-
-<span style="display: inline-block; padding: 0.25em 0.4em; font-size: 75%; font-weight: 700; line-height: 1; color: #fff; background-color: #007bff; border-radius: 0.375rem;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-        <path d="M11.596 8.697l-6.363 3.692c-.565.328-1.233-.052-1.233-.694V4.305c0-.642.668-1.022 1.233-.694l6.363 3.692a.802.802 0 0 1 0 1.394z"/>
-    </svg>
-    &nbsp;
-    Execute in Terminal 4
-    
-</span>
+Once you are done creating the map, save it (Terminal 4):
 
 ```bash
-cd /ros2_ws/src/koubot_nav/maps/
+cd /ros2_ws/src/koubot_slam/maps/
 ros2 run nav2_map_server map_saver_cli -f map
 ```
 
-This will create two files (`map.yaml` & `map.pgm`) to represent the map. Those files are located insisde the koubot_nav package:
+This will create two files (`map.yaml` & `map.pgm`) to represent the map. Those files are located inside the koubot_slam package:
 
 ```bash
-koubot_nav/
+koubot_slam/
   └── maps/
     ├── map.pgm
     └── map.yaml
