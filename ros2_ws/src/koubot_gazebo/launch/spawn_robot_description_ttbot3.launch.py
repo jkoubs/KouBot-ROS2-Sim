@@ -14,7 +14,6 @@ def generate_launch_description():
     # Gazebo models
     models_dir = get_package_share_directory('koubot_gazebo') + '/models'
 
-
     # Spawn ROBOT 
     spawn_robot = Node(
         package='gazebo_ros',
@@ -29,21 +28,10 @@ def generate_launch_description():
                    ],
         parameters=[{'use_sim_time': True}]
     )
-    
-
-    # Static transform from base_link to odom
-    static_transform_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_transform_publisher_odom_base_link',
-        arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_link'],
-        parameters=[{'use_sim_time': True}]
-    )
 
     # create and return launch description object
     return LaunchDescription(
         [
             spawn_robot,
-            # static_transform_publisher,
         ]
     )

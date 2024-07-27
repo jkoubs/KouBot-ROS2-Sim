@@ -75,7 +75,7 @@ The power system of <em>Koubot</em> is divided into two sections to ensure effic
 ## Launch container
 
 We will build 2 images:
-- <strong>galactic_tb_env</strong>: Allows to run turtlebot3 simulations in ROS 2 from a linux computer
+- <strong>galactic_tb_env</strong>: Allows to run turtlebot3 simulations in ROS 2 from a linux computer.
 - <strong>koubot_ros2</strong>: Built on top of <strong>galactic_tb_env</strong> image to set up the ros2_ws for developing the KouBot project.
 
 Open a new terminal and git clone the following repositories:
@@ -102,7 +102,7 @@ Next we will create the container:
 xhost +local:root
 ```
 
-**IMPORTANT NOTE:** Before running the container be sure to **edit the docker-compose.yml file and rename the path according to your local environment to properly mount your host directory into the container**.
+**IMPORTANT NOTE:** Before running the container be sure to **edit the docker-compose.yml file and rename the path according to your local environment to properly mount your host directory into the container. Thus, you need to edit `$HOME/Projects/KouBot-ROS2/ros2_ws/src` to your own local path.**
 
 <div align="center">
   <img src="doc/docker_instructions.png" alt="base"/>
