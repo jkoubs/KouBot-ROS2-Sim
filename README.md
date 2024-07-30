@@ -149,8 +149,96 @@ rviz2
 
 # Real Robot
 
-In progress ..
+## Build & Push Image (Local)
 
+Go to **hardware_integration** branch to access the right docker files. The **Dockerfile.koubot-vnc** primarily features two elements:
+
+* **ROS 2 environment**
+* **VNC Server**
+
+**Note 1:** It is using **jkoubi/galactic_env:multi_platform** as a base image.
+
+
+```bash
+cd $HOME/Projects/KouBot-ROS2/docker
+docker buildx build --platform linux/arm64 -t jkoubi/koubot_vnc --no-cache  --push -f Dockerfile.koubot-vnc ..
+```
+
+**Note 2:** If you have a qemu error:
+
+```bash
+ => ERROR [linux/arm64 2/8] RUN echo "source /ros2_ws/install/setup.bash" >> ~/.bashrc                                                                      32.6s
+------
+ > [linux/arm64 2/8] RUN echo "source /ros2_ws/install/setup.bash" >> ~/.bashrc:
+#0 0.848 .buildkit_qemu_emulator: /bin/bash: Invalid ELF image for this architecture
+```
+
+Then execute:
+
+```bash
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+```
+
+And rebuild:
+
+```bash
+cd $HOME/Projects/KouBot-ROS2/docker
+docker buildx build --platform linux/arm64 -t jkoubi/koubot_vnc --no-cache  --push -f Dockerfile.koubot-vnc ..
+```
+
+## Run the container using docker-compose (RaspberryPi)
+
+We first access the RaspberryPi using ssh, and once we are inside the RaspberryPi, we can execute:
+
+```bash
+cd /home/ubuntu/KouBot-ROS2/docker
+docker compose -f docker-compose-koubot-vnc.yml up
+```
+
+**Note: Ifyou have following error:**
+
+```bash
+my_koubot_vnc_container  | A VNC/X11 server is already running as :1 on machine 909073ac1f49
+my_koubot_vnc_container  | 
+my_koubot_vnc_container  | Warning: 909073ac1f49:1 is taken because of /tmp/.X1-lock
+my_koubot_vnc_container  | Remove this file if there is no X server 909073ac1f49:1
+my_koubot_vnc_container exited with code 1
+```
+
+Then execute:
+
+```bash
+docker compose -f docker-compose-koubot-vnc.yml down
+docker compose -f docker-compose-koubot-vnc.yml up
+```
+## Run the VNC client (Local)
+
+```bash
+vncviewer 192.168.1.221:5901
+```
+
+**We are currently operating within our ROS 2 environment container, and we have configured our VNC to access the GUI applications on our remote machine (Raspberry Pi).**
+
+
+## Launch rplidar (Docker container - Terminator)
+
+* Set read and write permissions of the serial device (Terminal 1):
+
+```bash
+sudo chmod 777 /dev/ttyUSB0
+```
+
+* Launch the rplidar node (Terminal 1):
+
+```bash
+ros2 launch rplidar_ros rplidar_a1_launch.py
+```
+
+* Launch the RViz2 node (Terminal 2):
+
+```bash
+rviz2 -d /ros2_ws/src/rplidar_ros/rviz/koubot_rplidar.rviz
+```
 # What has been done
 
 ## 1. Robot modeling (Using FreeCAD) + URDF

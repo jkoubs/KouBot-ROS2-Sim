@@ -1,5 +1,5 @@
 # FROM galactic_env
-FROM jkoubi/galactic_env:v1
+FROM jkoubi/galactic_env:multi_platform
 
 # ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
@@ -43,6 +43,7 @@ RUN apt-get update && apt-get install -y \
     terminator \
     x11-xserver-utils \
     supervisor \
+    openbox \
     && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables
@@ -51,11 +52,7 @@ ENV DISPLAY=:1
 
 # Create VNC server startup script
 RUN mkdir -p /root/.vnc && \
-    echo "#!/bin/sh\n\
-    xrdb $HOME/.Xresources\n\
-    xsetroot -solid grey\n\
-    export DISPLAY=:1\n\
-    terminator &\n" > /root/.vnc/xstartup && \
+    printf "#!/bin/sh\nxrdb $HOME/.Xresources\nxsetroot -solid grey\nexport DISPLAY=:1\nopenbox &\nterminator &\n" > /root/.vnc/xstartup && \
     chmod +x /root/.vnc/xstartup
 
 # Create a default .Xresources file

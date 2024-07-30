@@ -30,3 +30,5 @@ RUN source /opt/ros/galactic/setup.bash && \
 # Set Working directory
 WORKDIR '/ros2_ws'
 # ENTRYPOINT ["/ros_entrypoint.sh"]
+
+# Image name: jkoubi/koubot_ros2:jk_rplidar
