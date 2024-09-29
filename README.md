@@ -185,7 +185,40 @@ koubot_slam/
     ├── map.pgm
     └── map.yaml
 ```
+
+<div align="center">
+  <img src="doc/mapping.gif" alt="Demo"/>
+</div>
+
 ### Localization
+
+Launch the simulation (Terminal 1):
+
+```bash
+ros2 launch koubot_gazebo spawn_robot_ttbot3.launch.xml
+```
+
+Launch the amcl node (Terminal 2):
+
+```bash
+ros2 launch koubot_slam amcl.launch.py
+```
+**IMPORTANT:** Once our localization node is launched, we need to set a `2D Pose Estimate` using Rviz. 
+
+
+
+Now, using teleop, move the robot around and check how the localization pipeline works (Terminal 3):
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+<div align="center">
+  <img src="doc/localization.gif" alt="Demo"/>
+</div>
+
+We can see that the particle filter shrinks over time which confirms that our localization is working properly.
+
+
 ### Path Planning
 
 # Real Robot
