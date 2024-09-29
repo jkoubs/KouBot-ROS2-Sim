@@ -18,8 +18,8 @@ amcl:
     laser_min_range: -1.0
     laser_model_type: "likelihood_field"
     max_beams: 60
-    max_particles: 500 # Maximum allowed number of particles.
-    min_particles: 50 # Minimum allowed number of particles.
+    max_particles: 3000 # Maximum allowed number of particles.
+    min_particles: 100 # Minimum allowed number of particles.
     odom_frame_id: "odom"
     pf_err: 0.05
     pf_z: 0.99
