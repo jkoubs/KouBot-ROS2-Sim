@@ -216,7 +216,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
   <img src="doc/localization.gif" alt="Demo"/>
 </div>
 
-We can see that the particle filter shrinks over time which confirms that our localization is working properly.
+We can see that the particle filter (small purple dots)  shrinks over time which confirms that our localization is working properly.
 
 
 ### Path Planning
