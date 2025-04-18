@@ -56,11 +56,11 @@ def generate_launch_description():
     )
 
     # 4) RVIZ Configuration
-    # rviz_config_file = os.path.join(get_package_share_directory(
-    #     'robot_description'), 'rviz', 'urdf.rviz')
-    
     rviz_config_file = os.path.join(get_package_share_directory(
-        'koubot_slam'), 'rviz', 'amcl.rviz')
+        'robot_description'), 'rviz', 'urdf.rviz')
+    
+    # rviz_config_file = os.path.join(get_package_share_directory(
+    #     'koubot_slam'), 'rviz', 'amcl.rviz')
 
     rviz_node = Node(
         package='rviz2',
