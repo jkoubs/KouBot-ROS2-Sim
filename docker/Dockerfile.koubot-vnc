@@ -18,6 +18,13 @@ COPY /ros2_ws/ /ros2_ws/
 # Install ultralytics for YOLOv8
 # RUN pip3 install ultralytics
 
+# Install additional packages
+RUN apt-get update --fix-missing && \
+    apt-get install -y \
+    ros-galactic-joy \
+    ros-galactic-teleop-twist-joy && \
+    pip3 install pyserial
+
 # Update rosdep database and install dependencies
 RUN source /opt/ros/galactic/setup.bash && \
     apt-get update --fix-missing && \
@@ -67,3 +74,5 @@ EXPOSE 5901
 
 # Start Supervisor
 CMD ["/usr/bin/supervisord"]
+
+#jkoubi/koubot_vnc:v3 (DockerHub)
