@@ -29,7 +29,9 @@ RUN apt-get update --fix-missing && \
 RUN source /opt/ros/galactic/setup.bash && \
     apt-get update --fix-missing && \
     cd /ros2_ws/src  && \
+    # LiDAR install
     git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git && \
+    # ros2_laser_scan_matcher install
     git clone https://github.com/AlexKaravaev/csm.git && \
     git clone https://github.com/AlexKaravaev/ros2_laser_scan_matcher.git && \
     # This installs dependencies declared in package.xml from all pkgs in the src folder for ROS 2 Galactic
