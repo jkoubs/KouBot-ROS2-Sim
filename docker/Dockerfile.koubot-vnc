@@ -30,6 +30,8 @@ RUN source /opt/ros/galactic/setup.bash && \
     apt-get update --fix-missing && \
     cd /ros2_ws/src  && \
     git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git && \
+    git clone https://github.com/AlexKaravaev/csm.git && \
+    git clone https://github.com/AlexKaravaev/ros2_laser_scan_matcher.git && \
     # This installs dependencies declared in package.xml from all pkgs in the src folder for ROS 2 Galactic
     cd /ros2_ws/ && \
     rosdep install -i --from-path src --rosdistro galactic -y --skip-keys rviz && \
