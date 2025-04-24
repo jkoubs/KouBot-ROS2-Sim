@@ -81,14 +81,14 @@ We will build 2 images:
 Open a new terminal and git clone the following repositories:
 ```bash
 git clone https://github.com/jkoubs/ros2_galactic.git
-git clone https://github.com/jkoubs/KouBot-ROS2.git
+git clone https://github.com/jkoubs/KouBot-ROS2-Sim.git
 ```
 Then build the images:
 ```bash
 cd ros2_galactic/docker
 docker build -f Dockerfile -t galactic_env .
 cd ../..
-cd KouBot-ROS2/docker
+cd KouBot-ROS2-Sim/docker
 docker build -f Dockerfile -t koubot_ros2 ../
 ```
 <strong><em>Note</em></strong>: <strong>../</strong> represents the PATH context which sets the target context one level above to the <strong>koubot_ros2</strong> directory in order to successfully execute the COPY command from the Dockerfile which will copy the <strong>ros2_ws</strong> inside the container.
@@ -102,7 +102,7 @@ Next we will create the container:
 xhost +local:root
 ```
 
-**IMPORTANT NOTE:** Before running the container be sure to **edit the docker-compose.yml file and rename the path according to your local environment to properly mount your host directory into the container. Thus, you need to edit `$HOME/Projects/KouBot-ROS2/ros2_ws/src` to your own local path.**
+**IMPORTANT NOTE:** Before running the container be sure to **edit the docker-compose.yml file and rename the path according to your local environment to properly mount your host directory into the container. Thus, you need to edit `$HOME/Projects/KouBot-ROS2-Sim/ros2_ws/src` to your own local path.**
 
 <div align="center">
   <img src="doc/docker_instructions.png" alt="base"/>
