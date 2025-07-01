@@ -3,6 +3,8 @@ from launch.actions import DeclareLaunchArgument, LogInfo
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+import os
+from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration("use_sim_time")
@@ -19,6 +21,9 @@ def generate_launch_description():
         description="Full path to the yaml map file",
     )
 
+    rviz_config_file = os.path.join(get_package_share_directory(
+        'koubot_slam'), 'rviz', 'amcl.rviz')
+    
     amcl_params_file_arg = DeclareLaunchArgument(
         "amcl_params_file",
         default_value=PathJoinSubstitution(
@@ -56,10 +61,27 @@ def generate_launch_description():
         name="nav_manager",
         output='screen',
         parameters=[
-            {"use_sim_time": use_sim_time},
+            {"use_sim_time": True},
             {"autostart": True},
             {"node_names": ["map_server", "amcl"]},
         ],
+    )
+
+    # Publish initial pose after delay
+    initial_pose_node = Node(
+        package='koubot_slam',
+        executable='initial_pose_publisher.py',
+        name='initial_pose_publisher',
+        output='screen'
+    )
+
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        output='screen',
+        name='rviz_node',
+        parameters=[{'use_sim_time': True}],
+        arguments=['-d', rviz_config_file]
     )
 
     return LaunchDescription(
@@ -72,5 +94,7 @@ def generate_launch_description():
             map_server_node,
             amcl_node,
             nav_manager,
+            #initial_pose_node,
+            rviz
         ]
     )
