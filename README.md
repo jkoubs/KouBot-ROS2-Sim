@@ -2,7 +2,7 @@
 
 # Table of Contents
  - [About](#about)
-    - [Project Goals](#project-goals)
+    - [Project Goal](#project-goal)
     - [Key Features](#key-features)
     - [Power System](#power-system)
  - [Install](#install)
