@@ -7,14 +7,12 @@
     - [Power System](#power-system)
  - [Install](#install)
  - [Simulation](#simulation)
+    - [Teleoperation](#teleoperation)
+    - [Mapping](#mapping)
+    - [Localization](#localization)
     - [Autonomous Navigation](#autonomous-navigation)
-      - [Teleoperation](#teleoperation)
-      - [Mapping](#mapping)
-      - [Localization](#localization)
-      - [Path Planning](#path-planning)
  - [Real Robot](#real-robot)
- - [What has been done](#what-has-been-done)
- - [Challenges](#challenges)
+
 
 # About 
 
@@ -32,14 +30,10 @@ Welcome to the <em>Koubot</em> project repository! <em>Koubot</em>  is an ambiti
   <img src="doc/koubot_rviz_v2.png" alt="base" width="400"/>
 </div>
 
-## Project Goals
+## Project Goal
 
-One of the primary goals of the <em>Koubot</em> project is to achieve advanced **sensor fusion**, integrating data from multiple sensors to enhance the robot's odometry. By fusing data from an IMU (Inertial Measurement Unit) and GPS, <em>Koubot</em> will be able to:
+Design and build an affordable, ROS 2-based indoor robot with full autonomous navigation capabilities, leveraging Docker for reproducibility and portability.
 
-
-* Accurately detect and avoid obstacles
-* Map and navigate unfamiliar environments
-* Perform tasks autonomously with high precision
 
 ## Key Features
 
@@ -48,11 +42,11 @@ One of the primary goals of the <em>Koubot</em> project is to achieve advanced *
 
 * **Software**: ROS 2 Galactic, Docker container, Gazebo, RViz.
 
-* **Sensors**: LiDAR (RPLIDAR-A1M8 by Slamtec), Depth camera (OAK-D Lite), IMU (Adafruit - BNO055), GPS (Adafruit - Ultimate GPS Breakout v3).
+* **Sensors**: LiDAR (RPLIDAR-A1M8 by Slamtec), Depth camera (OAK-D Lite), IMU (Adafruit - BNO055).
 
 * **Mecanum Wheel Configuration**: Each of the 4 wheels is driven by its own motor, enabling omnidirectional movement for versatile navigation.
 
-* **Sensor Fusion**: Integrates data from IMU and GPS to improve odometry and overall navigation accuracy.
+* **Sensor Fusion**: Integrates data from IMU and wheel encoders to improve odometry and overall navigation accuracy.
 
 
 
@@ -72,7 +66,6 @@ The power system of <em>Koubot</em> is divided into two sections to ensure effic
 
 # Install
 
-## Launch container
 
 We will build 2 images:
 - <strong>galactic_tb_env</strong>: Allows to run turtlebot3 simulations in ROS 2 from a linux computer.
@@ -121,9 +114,12 @@ We are now <strong>inside the container</strong> and ready for executing our cod
 
 # Simulation
 
-## Autonomous Navigation
 
-### Teleoperation
+## Teleoperation
+
+<div align="center">
+  <img src="doc/teleop.gif" alt="Demo"/>
+</div>
 
 Spawn the robot in Gazebo (Terminal 1):
 
@@ -148,7 +144,11 @@ rviz2
 **Note:** In RViz add the **Image** Display with the `/camera/image_raw` topic and choose **Best Effort** for the **Reliability Policy**. Also add the **PointCloud2** Display with the `/point_cloud_sensor/points` topic.
 
 
-### Mapping
+## Mapping
+
+<div align="center">
+  <img src="doc/mapping.gif" alt="Demo"/>
+</div>
 
 Launch the simulation (Terminal 1):
 
@@ -186,11 +186,11 @@ koubot_slam/
     └── map.yaml
 ```
 
-<div align="center">
-  <img src="doc/mapping.gif" alt="Demo"/>
-</div>
+## Localization
 
-### Localization
+<div align="center">
+  <img src="doc/localization.gif" alt="Demo"/>
+</div>
 
 Launch the simulation (Terminal 1):
 
@@ -212,47 +212,15 @@ Now, using teleop, move the robot around and check how the localization pipeline
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
-<div align="center">
-  <img src="doc/localization.gif" alt="Demo"/>
-</div>
 
 We can see that the particle filter (small purple dots)  shrinks over time which confirms that our localization is working properly.
 
 
-### Path Planning
+## Autonomous Navigation
 
 # Real Robot
 
-In progress ..
-
-# What has been done
-
-## 1. Robot modeling (Using FreeCAD) + URDF
-
-<div align="center">
-  <img src="doc/koubot_rviz_v2.png" alt="base"/>
-</div>
-
-## 2. Added teleoperation (able to teleop in simulation)
+You can find the results on the real robot [here](https://github.com/jkoubs/KouBot-ROS2).
 
 
-<div align="center">
-  <img src="doc/teleop.gif" alt="Demo"/>
-</div>
-
-## 3. Communicate with robot wheels using Arduino and Platformio
-
-<div align="center">
-  <img src="doc/control_wheels.gif" alt="Demo"/>
-</div>
-
-## 4. Installed sensors on real robot (LiDAR + Camera + IMU)
-
-## 5. Mapping done
-
-# Challenges
-
-## 1. Get GUI application working with remote machine
-
-## 2. Communicate with motors and ROS 2
 
