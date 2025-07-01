@@ -6,6 +6,7 @@ services:
     container_name: koubot_ros2_container
     network_mode: host
     privileged: true
+    runtime: nvidia
     volumes:
       # ---------------------------------------------------------------------
       # Remember that to allow docker to public GUI tools on your computer
@@ -20,7 +21,7 @@ services:
       ###################### IMPORTANT: ######################
       ############## CHOOSE CORRECT PATH OF YOUR SYSTEM ##############
       ###################### IMPORTANT: ######################
-      - $HOME/Projects/KouBot-ROS2/ros2_ws/src:/ros2_ws/src:rw
+      - $HOME/Projects/KouBot-ROS2-Sim/ros2_ws/src:/ros2_ws/src:rw
     environment: # set ENV vars
       - DISPLAY # Forward the DISPLAY variable of the host to the container
       - QT_X11_NO_MITSHM=1 # Taken from https://answers.ros.org/question/391195/using-rviz-in-docker/?answer=391504#post-id-391504
@@ -28,6 +29,12 @@ services:
       - RCUTILS_COLORIZED_OUTPUT=1 # Console output colorizing
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp # tell ROS2 to use Cyclone DDS instead of the default DDS
 
+      # GPU-Accelerated inside docker
+      # check with: nvidia-smi cmd on local
+      # These tell the container to use your host GPU, enable driver features like OpenGL, and force direct GPU rendering instead of software fallback
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - LIBGL_ALWAYS_INDIRECT=0
     command:
       - bash
       - -c
