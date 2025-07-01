@@ -35,4 +35,11 @@ install(
     share/${PROJECT_NAME}/
 )
 
+# Install Python scripts (e.g. initial_pose_publisher.py)
+install(
+  PROGRAMS
+    scripts/initial_pose_publisher.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
