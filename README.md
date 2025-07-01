@@ -153,7 +153,7 @@ rviz2
 Launch the simulation (Terminal 1):
 
 ```bash
-ros2 launch koubot_gazebo spawn_robot_ttbot3.launch.xml
+ros2 launch koubot_gazebo ttbot3_spawn_robot.launch.xml
 ```
 
 Launch the slam node (Terminal 2):
@@ -195,7 +195,7 @@ koubot_slam/
 Launch the simulation (Terminal 1):
 
 ```bash
-ros2 launch koubot_gazebo spawn_robot_ttbot3.launch.xml
+ros2 launch koubot_gazebo ttbot3_spawn_robot.launch.xml
 ```
 
 Launch the amcl node (Terminal 2):
