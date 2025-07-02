@@ -11,7 +11,6 @@
     - [Mapping](#mapping)
     - [Localization](#localization)
     - [Autonomous Navigation](#autonomous-navigation)
- - [Real Robot](#real-robot)
 
 
 # About 
@@ -218,9 +217,7 @@ We can see that the particle filter (small purple dots)  shrinks over time which
 
 ## Autonomous Navigation
 
-# Real Robot
-
-You can find the results on the real robot [here](https://github.com/jkoubs/KouBot-ROS2).
+Autonomous navigation was performed on the real robot. You can find the results [here](https://github.com/jkoubs/KouBot-ROS2).
 
 
 
