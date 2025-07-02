@@ -47,15 +47,6 @@ def generate_launch_description():
         ]
     )
 
-    # Static transform from map -> base_link
-    static_tf_node = Node(
-        package="tf2_ros",
-        executable="static_transform_publisher",
-        name="static_tf_map_to_base",
-        arguments=["0", "0", "0", "0", "0", "0", "map", "base_link"],
-        output="screen"
-    )
-
     static_map_to_odom = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
@@ -80,7 +71,6 @@ def generate_launch_description():
         LogInfo(msg=["Launching map_server with: ", map_file]),
         map_server_node,
         lifecycle_manager_node,
-        #static_tf_node,
         static_map_to_odom,
         rviz_node
     ])
